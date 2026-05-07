@@ -1,5 +1,14 @@
 import type { TariffRule } from "./types.js";
 
+/**
+ * The functions in this module read the *local* timezone of the JavaScript
+ * runtime. Parking rules are stated in Stockholm time, so callers must
+ * ensure the Date was constructed in Europe/Stockholm time. Browsers on
+ * Swedish devices satisfy this automatically. Server-side callers (e.g.,
+ * future SSR or scheduled jobs in CI) must convert dates to Stockholm
+ * local parts before calling these helpers.
+ */
+
 export function dayOfWeekFor(date: Date): number {
   return date.getDay();
 }
