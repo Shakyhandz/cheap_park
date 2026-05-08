@@ -1,0 +1,28 @@
+[
+  {
+    "Id": "P-1001",
+    "Name": "Test Street 1",
+    "Owner": "Parkering Göteborg",
+    "ParkingSpaces": 5,
+    "FreeSpaces": 0,
+    "ParkingCost": "9-18 vard 35 kr/tim",
+    "ParkingCharge": "35",
+    "CurrentParkingCost": 35,
+    "MaxParkingTime": "240",
+    "MaxParkingTimeLimitation": "Mån-Fre 09-18",
+    "ExtraInfo": "",
+    "Lat": 57.7042,
+    "Long": 11.9678,
+    "WKT": "POINT(11.9678 57.7042)"
+  },
+  {
+    "Id": "P-1002",
+    "Name": "Test Street 2",
+    "Owner": "Parkering Göteborg",
+    "ParkingSpaces": 3,
+    "ParkingCost": "Avgiftsfri 30 min",
+    "MaxParkingTime": "30",
+    "Lat": 57.7050,
+    "Long": 11.9680
+  }
+]
