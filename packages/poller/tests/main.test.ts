@@ -30,7 +30,7 @@ describe("runPoll", () => {
     });
     expect(result.committed).toBe(false);
     expect(writes.size).toBe(0);
-    expect(result.reason).toMatch(/dropped/);
+    if (!result.committed) expect(result.reason).toMatch(/dropped/);
   });
 
   it("propagates fetcher errors", async () => {

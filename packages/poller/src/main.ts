@@ -49,9 +49,13 @@ export async function runPoll(opts: RunOptions): Promise<RunResult> {
 async function readPreviousFromDisk(): Promise<{ parkings: { id: string }[] }> {
   try {
     const text = await readFile(PARKINGS_PATH, "utf8");
-    return JSON.parse(text);
-  } catch {
-    return { parkings: [] };
+    return JSON.parse(text) as { parkings: { id: string }[] };
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "ENOENT") {
+      return { parkings: [] };
+    }
+    // Corrupt JSON or any other read error should abort, not bypass the sanity gate.
+    throw err;
   }
 }
 
