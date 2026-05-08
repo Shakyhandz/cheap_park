@@ -1,5 +1,5 @@
 import { writeFile, readFile, mkdir } from "node:fs/promises";
-import { dirname } from "node:path";
+import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Parking, ParkingsSnapshot, TariffsSnapshot } from "@cheap-park/tariff";
 import { fetchAllParkings, type RawParking } from "./fetch.js";
@@ -7,8 +7,12 @@ import { normalize } from "./normalize.js";
 import { sanityCheck } from "./sanity.js";
 import { KNOWN_TARIFFS } from "./tariff-templates.js";
 
-const PARKINGS_PATH = "apps/web/public/data/parkings.json";
-const TARIFFS_PATH = "apps/web/public/data/tariffs.json";
+// Resolve data paths from this file's location, not from process.cwd().
+// `npm run poll --workspace @cheap-park/poller` runs from the workspace dir,
+// so a relative path would land under packages/poller/ instead of repo root.
+const REPO_ROOT = resolve(fileURLToPath(import.meta.url), "../../../..");
+const PARKINGS_PATH = resolve(REPO_ROOT, "apps/web/public/data/parkings.json");
+const TARIFFS_PATH = resolve(REPO_ROOT, "apps/web/public/data/tariffs.json");
 const SOURCE = "data.goteborg.se ParkingService v2.1";
 
 export type RunOptions = {

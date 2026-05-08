@@ -14,8 +14,9 @@ describe("runPoll", () => {
       fetcher: async () => ({ toll: sample as never, time: [] }),
     });
     expect(result.committed).toBe(true);
-    expect(writes.has("apps/web/public/data/parkings.json")).toBe(true);
-    expect(writes.has("apps/web/public/data/tariffs.json")).toBe(true);
+    const paths = Array.from(writes.keys()).map((p) => p.replace(/\\/g, "/"));
+    expect(paths.some((p) => p.endsWith("apps/web/public/data/parkings.json"))).toBe(true);
+    expect(paths.some((p) => p.endsWith("apps/web/public/data/tariffs.json"))).toBe(true);
   });
 
   it("aborts without writing when sanity check fails", async () => {
