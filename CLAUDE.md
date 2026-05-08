@@ -22,7 +22,7 @@ karta över Göteborg och låter användaren hitta billigaste parkeringen.
 ## Vald arkitektur (Alternativ A, reviderad)
 
 **Stack:** Vite + React + TypeScript + MapLibre GL JS (OSM-tiles) → PWA,
-hostad på Cloudflare Pages.
+hostad på GitHub Pages.
 
 **Datapipeline:** GitHub Actions cron kör en daglig poller (04:00) som
 hämtar Göteborgs ParkingService-API, normaliserar till strukturerad
@@ -86,3 +86,15 @@ vi A med Capacitor istället — billigare migrering, behåller webb-versionen.
 
 Den slutliga designen sparas i `docs/superpowers/specs/` när
 brainstorming-fasen är klar.
+
+## Deployment
+
+Webbappen deployas till GitHub Pages via `.github/workflows/deploy-web.yml`
+vid push till `main` som rör `apps/web/**` eller `packages/tariff/**`.
+
+Live-URL: https://shakyhandz.github.io/cheap_park/
+
+För att aktivera Pages första gången:
+1. Repo Settings → Pages → Source: "GitHub Actions"
+2. Pusha en commit som triggar workflow:en (eller kör Actions → "Deploy web app to GitHub Pages" → Run workflow)
+3. Första körningen tar ~1–2 min, sedan är sajten live

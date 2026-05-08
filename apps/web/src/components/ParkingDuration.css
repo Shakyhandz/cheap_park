@@ -1,0 +1,79 @@
+.duration-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.duration-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+.duration-card h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.duration-value {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+  margin: 8px 0 4px;
+}
+
+.duration-target {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.duration-slider {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.duration-bounds {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.duration-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.duration-actions button {
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.duration-show {
+  background: var(--fg);
+  color: #fff;
+}
+
+.duration-unknown {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid #ddd !important;
+}
