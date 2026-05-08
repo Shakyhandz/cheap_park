@@ -1,6 +1,6 @@
 import type { Parking } from "@cheap-park/tariff";
 import type { RawParking } from "./fetch.js";
-import { matchTariff } from "./tariff-templates.js";
+import { matchTariff, parseDurationMinutes } from "./tariff-templates.js";
 
 const RAW_FIELDS_TO_KEEP = [
   "ParkingCost",
@@ -52,7 +52,7 @@ function toParking(raw: RawParking): Parking | null {
     lng,
     spaces: asNumber(raw["ParkingSpaces"]) ?? 0,
     tariffId,
-    maxParkingMinutes: asNumber(rawSubset["MaxParkingTime"]),
+    maxParkingMinutes: parseDurationMinutes(rawSubset["MaxParkingTime"]),
     raw: rawSubset,
   };
 }
