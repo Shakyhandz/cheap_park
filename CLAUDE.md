@@ -5,9 +5,15 @@ karta över Göteborg och låter användaren hitta billigaste parkeringen.
 
 ## Status
 
-- **Fas 1 (MVP, mobil webb):** Kommunal gatumark via Göteborgs öppna API.
-- **Fas 2:** Publika p-hus (APCOA, Aimo, Q-Park m.fl.) via scraping/avtal.
-- **Fas 3:** Native iOS/Android, beläggningsdata bredare, ev. privata p-platser.
+- ✅ **Fas 1 (mobil webb, live):** Kommunal gatumark via Göteborgs öppna
+  API. 2603 parkeringar, 100% tariff-täckning. Daglig cron 04:00 UTC,
+  GitHub Pages-deploy. https://shakyhandz.github.io/cheap_park/
+- 🟡 **Fas 1.5 (utvärdera):** Pausat för användartester. Se "Nästa steg"
+  nedan för known issues och prioriterade följduppgifter.
+- ⏳ **Fas 2:** Publika p-hus (APCOA, Aimo, Q-Park m.fl.) via scraping
+  eller B2B-API. Kräver troligen flytt av poller till en riktig backend.
+- ⏳ **Fas 3:** Native iOS/Android via Capacitor-inlindning av webbappen.
+  Beläggningsdata bredare, ev. privata p-platser.
 
 ## UX-grundregler (låsta)
 
@@ -82,10 +88,66 @@ vi A med Capacitor istället — billigare migrering, behåller webb-versionen.
   `ParkingCost`/`ParkingCharge`/`MaxParkingTime`/`ExtraInfo` (fritext —
   parsas till tariff-mallar).
 
-## Spec
+## Spec och planer
 
-Den slutliga designen sparas i `docs/superpowers/specs/` när
-brainstorming-fasen är klar.
+- `docs/superpowers/specs/2026-05-07-cheap-park-mvp-design.md` — den
+  godkända MVP-designen (UX, arkitektur, datapipeline, felhantering, tester).
+- `docs/superpowers/plans/2026-05-07-cheap-park-data-foundation.md` — Plan 1
+  (tariff-paket + poller + cron). Implementerad.
+- `docs/superpowers/plans/2026-05-08-cheap-park-web-app.md` — Plan 2
+  (Vite/React/MapLibre PWA + GitHub Pages deploy). Implementerad.
+
+## Nästa steg
+
+Pausat efter Plan 1+2 för användartester. När arbete återupptas, dessa är
+prioriterade i fallande ordning:
+
+### Tactical (snabba fixar)
+
+- **Riktiga PWA-ikoner** — nuvarande 192/512-ikoner är 1×1-pixel
+  platshållare. Ful blob på hemskärm. SVG → PNG-export räcker.
+- **Stale-banner false positive** — placeholder `parkings.json` har
+  `generatedAt: "1970-01-01"`, så banner triggar på första laddningen
+  innan bot:en commitar riktig data. Lägg null/epoch-guard i `isStale`.
+- **DRY: extrahera `formatDuration(min)`** — duplicerat i
+  `ParkingDuration.tsx` och `MapView.tsx` toolbar (toolbar visar
+  "Tid: 1 tim 0 min" för rund timme; duration-popup formaterar korrekt).
+- **`defaultState` import oanvänd** i `App.tsx` — cosmetic cleanup.
+- **`FilterSheet` lokala state synkar inte med `initial`-prop** —
+  latent bug om parent någon gång reset:ar filters externt.
+
+### Datatäckning och kvalitet
+
+- **Helgdagshantering** — visar fel pris på svenska röda dagar.
+  Tariff-mallar har inget begrepp om helger.
+- **Kalibreringscheck** — jämför vår `priceNow` mot API:ts
+  `CurrentParkingCost`-fält som CI-signal när Göteborg ändrar taxor
+  eller introducerar nya mönster vi inte parsar.
+- **30-min-granularitet i `totalCost`** — för "23 kr/30 min"-zoner ger
+  vår linjära modell ungefär rätt totalt men inte exakt mot verklig
+  rundning till 30-min-block.
+
+### UX-förbättringar
+
+- **Pin-clustering vid låg zoom** — 2603 pins samtidigt blir trögt och
+  rörigt. MapLibres GeoJSON-cluster kräver omskrivning av MapView från
+  individuella `<Marker>` till en data-driven layer.
+- **Adress-sökruta** — "hitta parkering nära Avenyn". Inte i MVP.
+- **Dark mode-tokens** — locked till light just nu (`color-scheme: light`).
+- **Duration-popup blockeras av loading-vy på första cold load** — service
+  worker mitigerar för upprepade besök, men första gången måste
+  parkings.json laddas innan popupen kan visas. Hoist popupen.
+- **OSM-attribuering klickbar** — fixat licens-compliance-mässigt; kunde
+  formateras finare.
+
+### Fas 2 (privata p-hus)
+
+Större arbete — kräver troligen att poller flyttas till backend och att
+vi får B2B-avtal eller bygger scraping mot APCOA/Aimo/Q-Park.
+
+### Fas 3 (native)
+
+Capacitor-inlindning av samma webb-kodbas till App Store och Play.
 
 ## Deployment
 
