@@ -1,0 +1,120 @@
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.detail-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.detail-overlay.open .detail-backdrop {
+  opacity: 1;
+}
+
+.detail-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-radius: 18px 18px 0 0;
+  padding: 16px 20px env(safe-area-inset-bottom, 16px);
+  pointer-events: auto;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-out;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.detail-overlay.open .detail-sheet {
+  transform: translateY(0);
+}
+
+.detail-handle {
+  width: 36px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+  margin: 0 auto 12px;
+}
+
+.detail-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.detail-owner {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.detail-prices {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+  background: #f6f6f8;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.detail-price-block {
+  flex: 1;
+}
+
+.detail-price-block .label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.detail-price-block .value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.detail-rules {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 12px;
+  white-space: pre-line;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.detail-actions button,
+.detail-actions a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.detail-actions .primary {
+  background: var(--fg);
+  color: #fff;
+}
+
+.detail-actions .secondary {
+  background: #eee;
+  color: var(--fg);
+}
