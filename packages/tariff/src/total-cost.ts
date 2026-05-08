@@ -52,6 +52,9 @@ export function totalCost(
     total += hours * seg.rate;
   }
 
+  // Note: despite the field name `maxPerDay`, this cap is applied once to
+  // the entire session total, not per calendar day. Multi-day durations
+  // will be undercapped. Per-day enforcement is out of scope for MVP.
   const cap = tariff.rules.find((r) => r.maxPerDay != null)?.maxPerDay ?? null;
   if (cap != null && total > cap) total = cap;
 

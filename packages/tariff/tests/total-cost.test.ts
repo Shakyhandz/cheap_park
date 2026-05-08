@@ -57,6 +57,9 @@ describe("totalCost", () => {
     const result = totalCost(weekdayPaidEvening, new Date("2026-05-11T23:30:00"), 60);
     if (result === "n/a") throw new Error("expected breakdown");
     expect(result.total).toBe(0);
+    expect(result.breakdown.length).toBe(2);
+    expect(result.breakdown[0]?.rate).toBe(0);
+    expect(result.breakdown[1]?.rate).toBe(0);
   });
 
   it("applies daily cap when total would exceed", () => {
