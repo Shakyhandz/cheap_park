@@ -1,3 +1,282 @@
 {
-  "tariffs": []
+  "tariffs": [
+    {
+      "id": "free-120min",
+      "name": "Avgiftsfri 120 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-1440min",
+      "name": "Avgiftsfri 1440 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-180min",
+      "name": "Avgiftsfri 180 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-240min",
+      "name": "Avgiftsfri 240 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-30min",
+      "name": "Avgiftsfri 30 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-360min",
+      "name": "Avgiftsfri 360 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-60min",
+      "name": "Avgiftsfri 60 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "free-720min",
+      "name": "Avgiftsfri 720 min",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "paid-h30-23-8-22-off2",
+      "name": "23 kr/30 min 8-22, övrigt 2 kr/h",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 46
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-12-8-22-off2",
+      "name": "12 kr/h 8-22, övrigt 2 kr/h",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 12
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-18-8-22-off2",
+      "name": "18 kr/h 8-22, övrigt 2 kr/h",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 18
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-24-8-22-off2",
+      "name": "24 kr/h 8-22, övrigt 2 kr/h",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 24
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-34-8-22-off2",
+      "name": "34 kr/h 8-22, övrigt 2 kr/h",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 34
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-6-8-22-off0-cap30",
+      "name": "6 kr/h 8-22, max 30 kr/dygn",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 6,
+          "maxPerDay": 30
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-7-8-22-off2",
+      "name": "7 kr/h 8-22, övrigt 2 kr/h",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 7
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    },
+    {
+      "id": "paid-h60-8-8-22-off2-cap50",
+      "name": "8 kr/h 8-22, övrigt 2 kr/h, max 50 kr/dygn",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 8,
+          "hourEnd": 22,
+          "pricePerHour": 8,
+          "maxPerDay": 50
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 8,
+          "pricePerHour": 2
+        },
+        {
+          "daysOfWeek": [],
+          "hourStart": 22,
+          "hourEnd": 24,
+          "pricePerHour": 2
+        }
+      ]
+    }
+  ]
 }
