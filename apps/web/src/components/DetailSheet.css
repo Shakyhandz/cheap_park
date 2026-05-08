@@ -9,12 +9,13 @@
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.3);
-  pointer-events: auto;
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
 }
 
 .detail-overlay.open .detail-backdrop {
+  pointer-events: auto;
   opacity: 1;
 }
 
@@ -26,7 +27,7 @@
   background: var(--surface);
   border-radius: 18px 18px 0 0;
   padding: 16px 20px env(safe-area-inset-bottom, 16px);
-  pointer-events: auto;
+  pointer-events: none;
   transform: translateY(100%);
   transition: transform 0.2s ease-out;
   max-height: 80vh;
@@ -35,6 +36,7 @@
 }
 
 .detail-overlay.open .detail-sheet {
+  pointer-events: auto;
   transform: translateY(0);
 }
 
