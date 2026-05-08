@@ -22,7 +22,7 @@ karta över Göteborg och låter användaren hitta billigaste parkeringen.
 ## Vald arkitektur (Alternativ A, reviderad)
 
 **Stack:** Vite + React + TypeScript + MapLibre GL JS (OSM-tiles) → PWA,
-hostad på Cloudflare Pages.
+hostad på GitHub Pages.
 
 **Datapipeline:** GitHub Actions cron kör en daglig poller (04:00) som
 hämtar Göteborgs ParkingService-API, normaliserar till strukturerad

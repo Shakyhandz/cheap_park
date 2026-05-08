@@ -41,12 +41,6 @@ jobs:
       - name: Build web app
         run: npm run build --workspace @cheap-park/web
 
-      - name: Copy data into build output
-        run: |
-          mkdir -p apps/web/dist/data
-          cp apps/web/public/data/parkings.json apps/web/dist/data/parkings.json
-          cp apps/web/public/data/tariffs.json apps/web/dist/data/tariffs.json
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/dist
