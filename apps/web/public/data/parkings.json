@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T05:12:27.461Z",
+  "generatedAt": "2026-05-11T05:28:27.940Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -11684,20 +11684,6 @@
       }
     },
     {
-      "id": "1480 2012-01578",
-      "name": "Lilla Kongahällavägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.85858,
-      "lng": 11.999174,
-      "spaces": 250,
-      "tariffId": "free-1440min",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2012-01605",
       "name": "Södra Vägen",
       "owner": "Stadsmiljöförvaltningen",
@@ -15474,20 +15460,6 @@
       }
     },
     {
-      "id": "1480 2017-00003",
-      "name": "Gamla Flygplatsvägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.712118,
-      "lng": 11.782793,
-      "spaces": 97,
-      "tariffId": "free-1440min",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2017-00117",
       "name": "Holländaregatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -18866,20 +18838,6 @@
       }
     },
     {
-      "id": "1480 2019-00210",
-      "name": "Lillebyvägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.737756,
-      "lng": 11.798953,
-      "spaces": 84,
-      "tariffId": "free-1440min",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2019-00231",
       "name": "Slussplatsen",
       "owner": "Stadsmiljöförvaltningen",
@@ -21094,20 +21052,6 @@
       "lat": 57.757725,
       "lng": 11.990097,
       "spaces": 82,
-      "tariffId": "free-240min",
-      "maxParkingMinutes": 240,
-      "raw": {
-        "MaxParkingTime": "4 tim",
-        "MaxParkingTimeLimitation": "Parkering är dock tillåten under högst 4 tim i följd vardag utom vardag före sön- och helgdag klockan 22.00 - 06.00."
-      }
-    },
-    {
-      "id": "1480 2020-02009",
-      "name": "Ellesbovägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.799475,
-      "lng": 11.993916,
-      "spaces": 102,
       "tariffId": "free-240min",
       "maxParkingMinutes": 240,
       "raw": {
@@ -28606,20 +28550,6 @@
       "raw": {
         "MaxParkingTime": "30 min",
         "ExtraInfo": "P-förbud fredagar klockan 02.00 - 07.00."
-      }
-    },
-    {
-      "id": "1480 2022-01170",
-      "name": "Brottkärrsmotet",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.601893,
-      "lng": 11.954432,
-      "spaces": 0,
-      "tariffId": "free-240min",
-      "maxParkingMinutes": 240,
-      "raw": {
-        "MaxParkingTime": "4 tim",
-        "MaxParkingTimeLimitation": "Parkering är dock tillåten under högst 4 tim i följd vardag utom vardag före sön- och helgdag klockan 22.00 - 06.00."
       }
     },
     {
@@ -37592,6 +37522,73 @@
       "raw": {
         "MaxParkingTime": "30 min",
         "ExtraInfo": "P-förbud fredagar klockan 02.00 - 07.00."
+      }
+    },
+    {
+      "id": "1480 2026-01211",
+      "name": "Lilla Kongahällavägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.85858,
+      "lng": 11.999172,
+      "spaces": 250,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01212",
+      "name": "Brottkärrsmotet",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.601888,
+      "lng": 11.954447,
+      "spaces": 144,
+      "tariffId": "free-240min",
+      "maxParkingMinutes": 240,
+      "raw": {
+        "MaxParkingTime": "4 tim",
+        "MaxParkingTimeLimitation": "Parkering är dock tillåten under högst 4 tim i följd under tiden vardag utom vardag före sön- och helgdag klockan 22.00 - 06.00."
+      }
+    },
+    {
+      "id": "1480 2026-01216",
+      "name": "Gamla Flygplatsvägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.712116,
+      "lng": 11.782842,
+      "spaces": 97,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01217",
+      "name": "Ellesbovägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.799472,
+      "lng": 11.993922,
+      "spaces": 102,
+      "tariffId": "free-240min",
+      "maxParkingMinutes": 240,
+      "raw": {
+        "MaxParkingTime": "4 tim",
+        "MaxParkingTimeLimitation": "Parkering är dock tillåten under högst 4 tim i följd mot avgift under vardag utom vardag före sön- och helgdag klockan 22.00 - 06.00."
+      }
+    },
+    {
+      "id": "1480 2026-01218",
+      "name": "Lillebyvägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.737744,
+      "lng": 11.798957,
+      "spaces": 84,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
       }
     },
     {
