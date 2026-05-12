@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T05:28:27.940Z",
+  "generatedAt": "2026-05-12T05:21:49.667Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -11648,23 +11648,6 @@
       "maxParkingMinutes": 30,
       "raw": {
         "MaxParkingTime": "30 min"
-      }
-    },
-    {
-      "id": "1480 2012-01425",
-      "name": "Carlandersplatsen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.69323,
-      "lng": 11.986634,
-      "spaces": 11,
-      "tariffId": "paid-h60-34-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 1",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "ExtraInfo": "P-förbud tisdagar klockan 09.00 - 12.00 jämna veckor."
       }
     },
     {
@@ -37305,6 +37288,23 @@
       }
     },
     {
+      "id": "1480 2026-00513",
+      "name": "Carlandersplatsen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.693481,
+      "lng": 11.986847,
+      "spaces": 6,
+      "tariffId": "paid-h60-34-8-22-off2",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
+        "ParkingCharge": "Taxa 1",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "ExtraInfo": "P-förbud tisdagar klockan 09.00 - 12.00 jämna veckor."
+      }
+    },
+    {
       "id": "1480 2026-00612",
       "name": "Rubingatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37324,7 +37324,7 @@
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.652745,
       "lng": 11.929239,
-      "spaces": 0,
+      "spaces": 14,
       "tariffId": "paid-h60-7-8-22-off2",
       "maxParkingMinutes": 1440,
       "raw": {
@@ -37369,7 +37369,7 @@
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.650314,
       "lng": 11.927323,
-      "spaces": 0,
+      "spaces": 4,
       "tariffId": "paid-h60-7-8-22-off2",
       "maxParkingMinutes": 1440,
       "raw": {
@@ -37385,7 +37385,7 @@
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.650352,
       "lng": 11.926237,
-      "spaces": 0,
+      "spaces": 4,
       "tariffId": "paid-h60-7-8-22-off2",
       "maxParkingMinutes": 1440,
       "raw": {
@@ -37401,7 +37401,7 @@
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.650633,
       "lng": 11.925584,
-      "spaces": 0,
+      "spaces": 16,
       "tariffId": "paid-h60-7-8-22-off2",
       "maxParkingMinutes": 1440,
       "raw": {
