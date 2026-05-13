@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-12T05:21:49.667Z",
+  "generatedAt": "2026-05-13T05:25:31.991Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -37639,17 +37639,17 @@
       }
     },
     {
-      "id": "1480 2026-01417",
+      "id": "1480 2026-01491",
       "name": "Brahegatan",
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.73008,
       "lng": 12.012871,
       "spaces": 14,
-      "tariffId": "paid-h60-7-8-22-off2",
+      "tariffId": "paid-h60-12-8-22-off2",
       "maxParkingMinutes": 1440,
       "raw": {
-        "ParkingCost": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 7",
+        "ParkingCost": "12 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
+        "ParkingCharge": "Taxa 6",
         "MaxParkingTime": "24 tim",
         "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
         "ExtraInfo": "P-förbud tisdagar klockan 09.00 - 12.00 jämna veckor."
