@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T05:34:32.321Z",
+  "generatedAt": "2026-05-22T05:31:03.087Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -2837,20 +2837,6 @@
         "ParkingCharge": "Taxa 7",
         "MaxParkingTime": "24 tim",
         "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
-      "id": "1480 2007-00169",
-      "name": "A Odhners Gata",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.659353,
-      "lng": 11.9404,
-      "spaces": 0,
-      "tariffId": "free-60min",
-      "maxParkingMinutes": 60,
-      "raw": {
-        "MaxParkingTime": "1 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 08.00 - 18.00."
       }
     },
     {
@@ -28665,19 +28651,6 @@
       }
     },
     {
-      "id": "1480 2022-01187",
-      "name": "Sven Hultins Gata",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.688808,
-      "lng": 11.973825,
-      "spaces": 0,
-      "tariffId": "free-30min",
-      "maxParkingMinutes": 30,
-      "raw": {
-        "MaxParkingTime": "30 min"
-      }
-    },
-    {
       "id": "1480 2022-01188",
       "name": "Eklandagatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -28973,20 +28946,6 @@
       "maxParkingMinutes": 30,
       "raw": {
         "MaxParkingTime": "30 min"
-      }
-    },
-    {
-      "id": "1480 2022-01237",
-      "name": "Zon Aröd",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.736814,
-      "lng": 11.955011,
-      "spaces": 0,
-      "tariffId": "free-60min",
-      "maxParkingMinutes": 60,
-      "raw": {
-        "MaxParkingTime": "1 tim",
-        "MaxParkingTimeLimitation": "Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag klockan 08.00 - 16.00."
       }
     },
     {
@@ -36968,6 +36927,58 @@
       }
     },
     {
+      "id": "1480 2026-00104",
+      "name": "A Odhners Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.659476,
+      "lng": 11.938568,
+      "spaces": 0,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
+      }
+    },
+    {
+      "id": "1480 2026-00106",
+      "name": "A Odhners Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.65933,
+      "lng": 11.940525,
+      "spaces": 0,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
+      }
+    },
+    {
+      "id": "1480 2026-00107",
+      "name": "Olof Asklunds Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.659773,
+      "lng": 11.939483,
+      "spaces": 0,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
+      }
+    },
+    {
+      "id": "1480 2026-00111",
+      "name": "A Odhners Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.658995,
+      "lng": 11.942578,
+      "spaces": 0,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
+      }
+    },
+    {
       "id": "1480 2026-00129",
       "name": "Kustgatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37589,6 +37600,32 @@
       "maxParkingMinutes": 1440,
       "raw": {
         "MaxParkingTime": "24 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01230",
+      "name": "Zon Södra Aröd",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.73207,
+      "lng": 11.956571,
+      "spaces": 0,
+      "tariffId": "free-60min",
+      "maxParkingMinutes": 60,
+      "raw": {
+        "MaxParkingTime": "1 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01231",
+      "name": "Zon Norra Aröd",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.738289,
+      "lng": 11.954395,
+      "spaces": 0,
+      "tariffId": "free-60min",
+      "maxParkingMinutes": 60,
+      "raw": {
+        "MaxParkingTime": "1 tim"
       }
     },
     {
