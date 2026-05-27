@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T05:30:14.267Z",
+  "generatedAt": "2026-05-27T05:38:05.809Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -37346,22 +37346,6 @@
       }
     },
     {
-      "id": "1480 2026-00620",
-      "name": "Ettrörsgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.650672,
-      "lng": 11.928291,
-      "spaces": 19,
-      "tariffId": "paid-h60-7-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 7",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2026-00636",
       "name": "Mariagatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37690,6 +37674,70 @@
         "MaxParkingTime": "24 tim",
         "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
         "ExtraInfo": "P-förbud tisdagar klockan 09.00 - 12.00 jämna veckor."
+      }
+    },
+    {
+      "id": "1480 2026-01696",
+      "name": "Ettrörsgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.650672,
+      "lng": 11.928291,
+      "spaces": 19,
+      "tariffId": "paid-h60-6-8-22-off0-cap30",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag",
+        "ParkingCharge": "Taxa 8",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
+      }
+    },
+    {
+      "id": "1480 2026-01697",
+      "name": "Radiomastgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.650314,
+      "lng": 11.927323,
+      "spaces": 4,
+      "tariffId": "paid-h60-6-8-22-off0-cap30",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag",
+        "ParkingCharge": "Taxa 8",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
+      }
+    },
+    {
+      "id": "1480 2026-01700",
+      "name": "Radiomastgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.650352,
+      "lng": 11.926237,
+      "spaces": 4,
+      "tariffId": "paid-h60-6-8-22-off0-cap30",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag",
+        "ParkingCharge": "Taxa 8",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
+      }
+    },
+    {
+      "id": "1480 2026-01701",
+      "name": "Radiomastgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.650633,
+      "lng": 11.925584,
+      "spaces": 16,
+      "tariffId": "paid-h60-6-8-22-off0-cap30",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag",
+        "ParkingCharge": "Taxa 8",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
       }
     }
   ]
