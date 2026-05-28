@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T05:38:05.809Z",
+  "generatedAt": "2026-05-28T05:33:52.331Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -2526,19 +2526,6 @@
       "raw": {
         "MaxParkingTime": "30 min",
         "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 09.00 - 18.00 och vardag före sön- och helgdag klockan 09.00 - 15.00."
-      }
-    },
-    {
-      "id": "1480 2006-03491",
-      "name": "Sankt Sigfridsgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.691991,
-      "lng": 12.003837,
-      "spaces": 0,
-      "tariffId": "free-120min",
-      "maxParkingMinutes": 120,
-      "raw": {
-        "MaxParkingTime": "2 tim"
       }
     },
     {
@@ -15203,40 +15190,12 @@
       }
     },
     {
-      "id": "1480 2016-02055",
-      "name": "Torvhögsvägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.798034,
-      "lng": 12.144935,
-      "spaces": 64,
-      "tariffId": "free-1440min",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2016-02063",
       "name": "Hornkamsgatan",
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.728204,
       "lng": 11.751993,
       "spaces": 9,
-      "tariffId": "free-1440min",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
-      "id": "1480 2016-02064",
-      "name": "Skiljebacken",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.79218,
-      "lng": 12.129921,
-      "spaces": 22,
       "tariffId": "free-1440min",
       "maxParkingMinutes": 1440,
       "raw": {
@@ -19395,20 +19354,6 @@
       }
     },
     {
-      "id": "1480 2019-01838",
-      "name": "Billdalsvägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.588252,
-      "lng": 11.949496,
-      "spaces": 58,
-      "tariffId": "free-1440min",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2019-01860",
       "name": "Vasagatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -20911,20 +20856,6 @@
       "maxParkingMinutes": 30,
       "raw": {
         "MaxParkingTime": "30 min"
-      }
-    },
-    {
-      "id": "1480 2020-01902",
-      "name": "Titteridammsvägen",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.794873,
-      "lng": 12.046977,
-      "spaces": 89,
-      "tariffId": "free-240min",
-      "maxParkingMinutes": 240,
-      "raw": {
-        "MaxParkingTime": "4 tim",
-        "MaxParkingTimeLimitation": "Parkering är dock tillåten under högst 4 tim i följd vardag utom vardag före sön- och helgdag klockan 22.00 - 06.00."
       }
     },
     {
@@ -37359,54 +37290,6 @@
       }
     },
     {
-      "id": "1480 2026-00640",
-      "name": "Radiomastgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.650314,
-      "lng": 11.927323,
-      "spaces": 4,
-      "tariffId": "paid-h60-7-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 7",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
-      "id": "1480 2026-00641",
-      "name": "Radiomastgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.650352,
-      "lng": 11.926237,
-      "spaces": 4,
-      "tariffId": "paid-h60-7-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 7",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
-      "id": "1480 2026-00643",
-      "name": "Radiomastgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.650633,
-      "lng": 11.925584,
-      "spaces": 16,
-      "tariffId": "paid-h60-7-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 7",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2026-00716",
       "name": "Slottsskogsgatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37613,6 +37496,59 @@
       }
     },
     {
+      "id": "1480 2026-01308",
+      "name": "Titteridammsvägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.794873,
+      "lng": 12.046977,
+      "spaces": 89,
+      "tariffId": "free-240min",
+      "maxParkingMinutes": 240,
+      "raw": {
+        "MaxParkingTime": "4 tim",
+        "MaxParkingTimeLimitation": "Parkering är dock tillåten under högst 4 tim i följd vardag utom vardag före sön- och helgdag klockan 22.00 - 06.00."
+      }
+    },
+    {
+      "id": "1480 2026-01310",
+      "name": "Skiljebacken",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.79209,
+      "lng": 12.129885,
+      "spaces": 22,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01311",
+      "name": "Torvhögsvägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.797967,
+      "lng": 12.144728,
+      "spaces": 64,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01320",
+      "name": "Billdalsvägen",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.588246,
+      "lng": 11.949532,
+      "spaces": 58,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
+      }
+    },
+    {
       "id": "1480 2026-01393",
       "name": "Teatergatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37657,6 +37593,19 @@
       "maxParkingMinutes": 30,
       "raw": {
         "MaxParkingTime": "30 min"
+      }
+    },
+    {
+      "id": "1480 2026-01479",
+      "name": "Sankt Sigfridsgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.692244,
+      "lng": 12.003696,
+      "spaces": 0,
+      "tariffId": "free-120min",
+      "maxParkingMinutes": 120,
+      "raw": {
+        "MaxParkingTime": "2 tim"
       }
     },
     {
