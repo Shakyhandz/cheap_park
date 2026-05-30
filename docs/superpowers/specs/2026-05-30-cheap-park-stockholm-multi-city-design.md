@@ -1,7 +1,8 @@
 # Cheap Park — Stockholm & multi-stad-design
 
 **Datum:** 2026-05-30
-**Status:** Godkänd design, redo för implementationsplan
+**Status:** Godkänd design (rev. 2 efter codex-granskning), redo för
+implementationsplan
 **Omfattning:** Lägg till Stockholms gatumarksparkering (Trafikkontorets
 LTF-Tolken-API) som en fullvärdig andra stad bredvid befintlig Göteborgs-data,
 på en gemensam karta.
@@ -18,15 +19,19 @@ användare. Bärande beslut fattade under brainstorm:
    accepterar två visuella språk på samma karta.
 4. **Svensk helgkalender byggs nu** — Stockholms taxor är formulerade kring
    "dag före helgdag" och "helgdag"; utan helgstöd blir priset systematiskt
-   fel kring röda dagar. Fixar samtidigt Göteborgs kända helgdags-bug.
+   fel kring röda dagar. Fixar samtidigt Göteborgs kända helgdags-bug i samma
+   veva.
 5. **Ett enat `parkings.geojson`** — en FeatureCollection med både punkter och
    linjer, en fetch i klienten, en MapLibre-källa, två renderingslager.
 6. **`vehicle`-fält i schemat** — allt taggas `"bilar"` nu så MC/buss kan
    adderas senare utan schemaändring.
 7. **Ingen beläggning för Stockholm** (`spaces: null`) — finns inte på gatumark.
+8. **Tidszon och helgkalender är egenskaper hos platsen, inte enheten** —
+   varje stad bär `timeZone` + `holidayCalendar`; priset för en feature
+   beräknas i dess egen lokala tid och röd-dags-kalender (se nedan).
 
 Arkitekturen behåller Alternativ A (statisk data på GitHub Pages, ingen
-backend). Endast pollern och klientens renderingslager ändras väsentligt.
+backend). Pollern, tariff-motorn och klientens renderingslager ändras.
 
 ## Datakälla (Stockholm)
 
@@ -49,7 +54,7 @@ fält. Relevanta fält per Feature:
 | `geometry` | LineString / MultiLineString | ritas som linje |
 | `STREET_NAME` | `"Sveavägen"` | `name` |
 | `VEHICLE` | `fordon` / `motorcykel` / … | filter (endast `fordon`) |
-| `PARKING_RATE` | `"taxa 2: 31 kr/tim …"` | parsas → `tariffId` |
+| `PARKING_RATE` | `"taxa 2: 31 kr/tim …"` | parsas → `tariffId`; även `rulesText` |
 | `VF_PLATS_TYP`, `VF_METER`, `CITY_DISTRICT`, `START_TIME`, `OTHER_INFO`, `CITATION`, `RDT_URL` | … | ej i MVP-payload (kan loggas) |
 
 ### Tariff-mönster (extremt regelbundna)
@@ -77,18 +82,44 @@ GitHub Actions cron (04:00 UTC)
         │
    poller (orkestrator)
    ├── Göteborg-producent  → Point-features
-   └── Stockholm-producent → LineString-features
+   └── Stockholm-producent → LineString/MultiLineString-features
         │  merge + per-stad sanity-gate
         ▼
- apps/web/public/data/parkings.geojson   (allt: punkter + linjer)
+ apps/web/public/data/parkings.geojson   (allt: punkter + linjer + stad-metadata)
  apps/web/public/data/tariffs.json       (delad taxekatalog)
         │  commit → Pages auto-deploy
         ▼
-   klient: 1 fetch → 1 MapLibre-källa → 2 lager, priser beräknas från-nu
+   klient: 1 fetch → web-facing modell → 1 MapLibre-källa → 2 lager,
+           priser beräknas från-nu i varje features egen tidszon/kalender
 ```
 
-Klienten beräknar "pris just nu" och "totalkostnad för X tid" lokalt mot den
-delade tariff-motorn, som utökas med svensk helgkalender.
+## Tidszon och kalender (generaliserad modell)
+
+**Princip:** tidszon och röd-dags-kalender är egenskaper hos *platsen*, inte
+hos användarens enhet. Enheten bidrar bara med det absoluta tidsögonblicket
+(epoch). Det ögonblicket renderas in i varje features lokala väggklocka för
+regelmatchning.
+
+Motorn blir `priceNow(tariff, instant, ctx)` där `ctx = { timeZone, calendar }`
+hämtas från featurens stad:
+
+- Samma `instant`, en Stockholm-feature → 13:31 → Stockholm-regler 13:31.
+- Samma `instant`, en (framtida) Helsingfors-feature → 14:31 (EET) →
+  Helsingfors-regler 14:31.
+
+Detta gäller **per feature** (via dess stad), inte per kartvyport — så
+Stockholm- och framtida Helsingfors-features kan visas samtidigt och var och
+en prissätts korrekt i sin egen locale, utan vyport-spårning.
+
+**Kalendern är också locale-specifik:** "helgdag" skiljer sig mellan länder
+(svenska röda dagar ≠ finska). Därför bär en stad både `timeZone` och
+`holidayCalendar`. I nuvarande scope är båda städerna `Europe/Stockholm` + `SE`,
+så beteendet är identiskt idag — men modellen bär det per stad, så att en ny
+stad bara blir en ny rad (t.ex. `Europe/Helsinki` + `FI`) utan motoromskrivning.
+
+Implementation: väggklockans delar (veckodag, timme, datum) härleds för en
+given `timeZone` via `Intl.DateTimeFormat(...).formatToParts(instant)`. Vi
+litar aldrig på enhetens tidszons-inställning, bara dess absoluta klocka.
 
 ## Dataschema
 
@@ -98,9 +129,19 @@ delade tariff-motorn, som utökas med svensk helgkalender.
 {
   "type": "FeatureCollection",
   "generatedAt": "2026-05-30T04:00:00Z",
-  "sources": {
-    "goteborg": "data.goteborg.se ParkingService v2.1",
-    "stockholm": "openparking.stockholm.se LTF-Tolken v1 (ptillaten)"
+  "cities": {
+    "goteborg": {
+      "source": "data.goteborg.se ParkingService v2.1",
+      "timeZone": "Europe/Stockholm",
+      "holidayCalendar": "SE",
+      "center": [11.9685, 57.7068]
+    },
+    "stockholm": {
+      "source": "openparking.stockholm.se LTF-Tolken v1 (ptillaten)",
+      "timeZone": "Europe/Stockholm",
+      "holidayCalendar": "SE",
+      "center": [18.0686, 59.3293]
+    }
   },
   "features": [
     {
@@ -111,7 +152,10 @@ delade tariff-motorn, som utökas med svensk helgkalender.
         "city": "goteborg",
         "vehicle": "bilar",
         "name": "Godhemsgatan",
+        "provider": "Stadsmiljöförvaltningen",
         "tariffId": "free-30min",
+        "rulesText": "30 min. Tidsbegränsningen gäller vardag 07.00–23.00 …",
+        "accessible": false,
         "spaces": 10,
         "maxParkingMinutes": 30
       }
@@ -124,7 +168,10 @@ delade tariff-motorn, som utökas med svensk helgkalender.
         "city": "stockholm",
         "vehicle": "bilar",
         "name": "Sveavägen",
+        "provider": "Stockholms stad",
         "tariffId": "sthlm-taxa-2",
+        "rulesText": "taxa 2: 31 kr/tim vardagar 7-21 och dag före helgdag och helgdag 9-19, 20 kr/tim övrig tid",
+        "accessible": false,
         "spaces": null,
         "maxParkingMinutes": null
       }
@@ -133,13 +180,25 @@ delade tariff-motorn, som utökas med svensk helgkalender.
 }
 ```
 
-- `city` styr rendering (punkt vs linje) och stad-specifik UI (dölj beläggning
-  för Stockholm).
+Designval kring properties (svar på granskningens fynd #3):
+
+- **`raw`-blobben skeppas inte** — istället **normaliserar pollern** de
+  klient-relevanta fälten till stad-agnostiska egenskaper, så klienten slipper
+  stad-specifik logik:
+  - `provider` ersätter dagens `owner` (visas i list-/detaljvy).
+  - `rulesText` är den människoläsbara regeltexten i detaljvyn. För Stockholm
+    = `PARKING_RATE`. För Göteborg = sammansatt av dagens
+    `ParkingCost` / `MaxParkingTimeLimitation` / `ExtraInfo`.
+  - `accessible` (bool) bakas i pollern. Göteborg: regex på `ExtraInfo`
+    (`rörelsehindrade|handikapp|permit`, som dagens klient). Stockholm: `false`
+    (fordon-only; rörelsehindrad-rader utesluts — konsekvent med `vehicle`).
+- `city` refererar in i `cities`-blocket → ger `timeZone`, `holidayCalendar`,
+  `center`.
 - `vehicle` är `"bilar"` för alla features i MVP; framtidssäkrar fler typer.
 - `id`-prefix (`gbg:` / `sthlm:`) garanterar unika nycklar över städer.
 - `spaces`/`maxParkingMinutes` är `null` där datan saknas (alla Stockholm).
-- Dagens Göteborg-`raw`-blob tas bort ur den enade filen (bantning); behövs
-  felsökning kan den loggas i pollern, inte skickas till klienten.
+- **Geometri:** `Point` (Göteborg) eller `LineString | MultiLineString`
+  (Stockholm). Klienten hanterar alla tre (fynd #4).
 
 ### `tariffs.json` (delad katalog)
 
@@ -149,13 +208,17 @@ Befintliga Göteborgs-taxor + Stockholms taxor (`sthlm-taxa-1..5`,
 
 ## Tariff-modell: dagtyp + helgkalender
 
-Stockholm-texten har tre dagklasser:
+Stockholm-texten har tre dagklasser. Klassificeringen är en **strikt prioritet**
+(svar på fynd #2) så att varje datum hamnar i exakt en klass:
 
-| Klass | Definition |
-|-------|-----------|
-| `helgdag` | söndagar + svenska röda dagar |
-| `preHelgdag` | en vardag vars *nästa* dag är `helgdag` (t.ex. lördagar) |
-| `vardag` | vardag som inte är `preHelgdag` (vanlig mån–fre) |
+1. `helgdag` — om datumet är söndag **eller** en röd dag (oavsett veckodag).
+2. `preHelgdag` — annars, om *nästa kalenderdag* är `helgdag`. Täcker lördagar
+   (före söndag), aftnar (t.ex. julafton 24/12 före juldagen), och årsskiftet
+   (31/12 före nyårsdagen 1/1).
+3. `vardag` — i övriga fall (vanlig mån–fre).
+
+En röd dag som infaller på en lördag blir alltså `helgdag` (steg 1 vinner), inte
+`preHelgdag`.
 
 ### Modelländring (additiv, bakåtkompatibel)
 
@@ -174,14 +237,26 @@ export type TariffRule = {
 };
 ```
 
-`ruleAppliesAt(rule, at)` matchar om:
-`(dayClasses saknas ∨ innehåller dayClassOf(at)) ∧ (daysOfWeek tom ∨ innehåller veckodag) ∧ (hourStart ≤ timme < hourEnd)`.
+Regelmatchningen tar nu ett locale-context och ett absolut ögonblick:
 
-Göteborgs befintliga regler saknar `dayClasses` och beter sig oförändrat.
+```ts
+type EvalContext = { timeZone: string; calendar: "SE" /* | "FI" … */ };
+
+ruleAppliesAt(rule, instant, ctx): boolean
+// sant om:
+//   (dayClasses saknas ∨ innehåller dayClassOf(instant, ctx))
+//   ∧ (daysOfWeek tom ∨ innehåller veckodag(instant, ctx.timeZone))
+//   ∧ (hourStart ≤ timme(instant, ctx.timeZone) < hourEnd)
+```
+
+`priceNow(tariff, instant, ctx)` och `totalCost(tariff, instant, durMin, ctx)`
+får samma `ctx`-parameter. Göteborgs befintliga regler saknar `dayClasses` och
+beter sig oförändrat (utöver att de nu evalueras i `Europe/Stockholm` explicit
+istället för enhetens lokala tid).
 
 ### `packages/tariff/src/holidays.ts` (ny)
 
-Beräknar röda dagar per år utan underhållstabell:
+Beräknar röda dagar per år och kalender utan underhållstabell. För `SE`:
 
 - **Fasta:** nyårsdagen (1/1), trettondedag jul (6/1), första maj (1/5),
   nationaldagen (6/6), juldagen (25/12), annandag jul (26/12).
@@ -190,15 +265,14 @@ Beräknar röda dagar per år utan underhållstabell:
 - **Rörliga lördagar:** midsommardagen (lördag 20–26 juni), alla helgons dag
   (lördag 31 okt–6 nov).
 
-Exponerar `isHoliday(date): boolean` och `dayClassOf(date): DayClass`.
+Exponerar `isHoliday(date, calendar)` och `dayClassOf(instant, ctx): DayClass`.
+Strukturen tar en `calendar`-parameter så att fler länder kan adderas senare.
 
-### Göteborg-bonus (in-scope om billigt)
+### Göteborg-bonus (in-scope i denna spec)
 
-Samma motor gör att Göteborgs `"vardag utom dag före sön- och helgdag"`-mönster
-äntligen kan tolkas rätt. De Göteborg-mallar i `tariff-templates.ts` som
-refererar helgdag uppgraderas att använda `dayClasses`. Detta stänger den
-kända helgdags-buggen. Om det visar sig icke-trivialt bryts det ut till
-egen följduppgift.
+De Göteborg-mallar i `tariff-templates.ts` som refererar helgdag uppgraderas
+att använda `dayClasses` + svensk kalender. Detta stänger den kända
+helgdags-buggen direkt. Mallar utan helg-beroende lämnas orörda.
 
 ## Pipeline-moduler (poller)
 
@@ -207,46 +281,97 @@ gemensamt `Feature[]`-kontrakt.
 
 | Modul | Ansvar |
 |-------|--------|
-| `producers/goteborg.ts` | Återanvänder `fetch.ts` + `normalize.ts`, ger Point-features |
+| `producers/goteborg.ts` | Återanvänder `fetch.ts` + `normalize.ts`, ger Point-features med normaliserade `provider`/`rulesText`/`accessible` |
 | `fetch-stockholm.ts` | Hämtar `ptillaten/all` (nyckel `STHLM_TK_APIKEY`), UTF-8, returnerar GeoJSON |
-| `normalize-stockholm.ts` | Filtrerar `VEHICLE=fordon`, behåller linjegeometri, kapar koordinatprecision (5 decimaler, ~1 m), mappar `PARKING_RATE → tariffId`, bygger Feature |
+| `normalize-stockholm.ts` | Filtrerar `VEHICLE=fordon`, behåller linjegeometri (`LineString \| MultiLineString`), kapar koordinatprecision (5 decimaler, ~1 m), mappar `PARKING_RATE → tariffId` + `rulesText`, sätter `provider`/`accessible`, bygger Feature |
 | `tariff-templates-stockholm.ts` | `PARKING_RATE`-mönster → `Tariff` med `dayClasses` (taxa 1–5, avgiftsfri, taxa 11–14) |
-| orkestrator (`main.ts`) | Slår ihop features, kör per-stad sanity, skriver `parkings.geojson` + `tariffs.json` |
+| orkestrator (`main.ts`) | Slår ihop features + `cities`-metadata, kör per-stad sanity, skriver `parkings.geojson` + `tariffs.json` |
 
-Delade GeoJSON-typer (`ParkingFeature`, `ParkingFeatureCollection`) flyttas in
-i `packages/tariff` och delas av poller + web.
+Delade GeoJSON-typer (`ParkingFeature`, `ParkingFeatureCollection`,
+`CityMeta`) flyttas in i `packages/tariff` och delas av poller + web.
 
 ## Klient (apps/web)
 
-- **Laddning:** en fetch av `parkings.geojson` + `tariffs.json`.
-- **MapView skrivs om** från individuella `<Marker>` till data-drivna lager:
-  - ett cirkel-/symbol-lager för `Point`-features (Göteborg),
-  - ett linje-lager för `LineString`-features (Stockholm),
-  - båda färgade efter pris-just-nu-bucket (beräknat lokalt).
-  - Detta löser samtidigt den redan flaggade clustering-/prestanda-skulden
-    (2603 + ~15k features kan inte vara enskilda React-markers).
-- **Popup** vid klick: namn + pris just nu + (om duration vald) totalkostnad.
-  För Stockholm visas ingen beläggning; för Göteborg som idag.
+### Web-facing modell (fynd #3)
+
+Loadern plattar GeoJSON till en stad-agnostisk klientmodell som alla
+komponenter konsumerar:
+
+```ts
+type ClientParking = {
+  id: string;
+  city: "goteborg" | "stockholm";
+  name: string;
+  provider: string;
+  geometry: GeoJSON.Geometry;        // för rendering
+  displayPoint: { lat: number; lng: number }; // härledd: punkt = sig själv,
+                                              // linje/multiline = mittpunkt
+  tariffId: string | null;
+  rulesText: string;
+  accessible: boolean;
+  spaces: number | null;
+  maxParkingMinutes: number | null;
+  ctx: { timeZone: string; calendar: string }; // från cities[city]
+};
+```
+
+- **`displayPoint`** löser de fyra ställen en linje saknar en punkt:
+  vägbeskrivnings-länk (`DetailSheet.directionsUrl`), avståndssortering
+  (`haversine` i list-/sorteringslogik), popup-ankare och centrering.
+  Beräknas en gång vid laddning (mittpunkt för linje/multiline).
+- `provider` ersätter `owner` i `ListView`/`DetailSheet`.
+- `rulesText` ersätter detaljvyns nuvarande tre separata `raw`-fält.
+- Pris beräknas alltid med `feature.ctx` (per-stad tidszon/kalender).
+
+### Rendering och färgläggning (fynd #5)
+
+MapLibre-stiluttryck kan inte anropa `priceNow()`. Därför:
+
+- MapView skrivs om från individuella `<Marker>` till **data-drivna lager**:
+  ett cirkel-/symbol-lager för `Point`-features (Göteborg) och ett linje-lager
+  för `LineString/MultiLineString`-features (Stockholm).
+- Klienten härleder en **runtime-GeoJSON-källa** där varje feature får
+  beräknade properties: `tier` (pris-bucket från `priceNow` i featurens locale)
+  och `dimmed` (bortfiltrerad). Lagren färgas via data-drivna uttryck
+  (`["match", ["get","tier"], …]`).
+- Källan **räknas om** när tid (minut-tick), vald duration eller filter ändras.
+  Färgläggning använder `priceNow` (billigt) — inte `totalCost`.
+- Detta löser samtidigt den redan flaggade clustering-/prestanda-skulden
+  (2603 + ~15k features kan inte vara enskilda React-markers).
+
+### Prestanda för "billigast"
+
+`totalCost` (när duration är vald) används för list-rankning. Nuvarande
+implementation stegar minut-för-minut; vid ~18k features blir det dyrt.
+**In-scope:** optimera `totalCost` att hoppa till nästa regelgräns analytiskt
+(O(regelsegment) istället för O(minuter)). Gynnar även Göteborg. `totalCost`
+för enskild vald feature i detaljvyn är oförändrat billigt.
+
+### Startvy (fynd #8)
+
+Vid laddning: om position finns (befintlig `geo.ts`), centrera på **närmaste
+stad** (Göteborg/Stockholm via `cities[].center`), annars Göteborg som idag.
+Ingen stad-väljare — bara initial centrering. Användarens lokalisera-knapp
+(`flyTo`) är oförändrad.
+
+### Migration (fynd #6)
+
+- Loadern hämtar **`parkings.geojson`** istället för `parkings.json`.
+- Gamla `apps/web/public/data/parkings.json` (inkl. placeholder) tas bort;
+  `tariffs.json` behålls.
 - **Stale-banner epoch-guard** vävs in (känd tactical fix) eftersom laddaren
   ändå rörs.
 
-## Payload-budget
-
-- Linjer behålls; geometri slås **inte** ihop.
-- Bantning: endast `fordon`, minimala properties, koordinatprecision 5
-  decimaler (~1 m), taxor externaliserade till `tariffs.json`.
-- Uppskattning: ~15,7k linjer ≈ **2–4 MB** rå JSON → Pages gzip/brotli →
-  **~300–600 kB** över nätet. Service-workern cachar. Acceptabelt.
-- **Guardrail:** pollern loggar utdatans storlek och varnar över en tröskel
-  (t.ex. 6 MB okomprimerat) som signal för framtida linjeförenkling. Ej
-  blockerande.
-
 ## Felhantering
 
-- **Per-stad sanity-gate:** varje stads feature-antal jämförs mot förra
-  snapshotets per-stad-antal. Faller en stad till 0 eller tappar mer än en
-  tröskel (t.ex. 20 %) → avbryt hela skrivningen och behåll förra filen
-  (aldrig en halvtom karta). Båda städer måste passera.
+- **Per-stad sanity-gate (fynd #7):** ersätter dagens totala 90 %-check.
+  Varje stads feature-antal jämförs mot förra snapshotets per-stad-antal
+  (härleds genom att räkna features per `city` i förra filen — ingen separat
+  lagring). Faller en stad till 0 eller tappar **mer än 20 %** → avbryt hela
+  skrivningen och behåll förra filen (aldrig en halvtom karta). Båda städer
+  måste passera.
+- **Första körningen (bootstrap):** ingen tidigare `parkings.geojson` →
+  tillåt skrivning (som dagens ENOENT-väg). Gamla `parkings.json` läses inte.
 - En stads fetch/auth-fel → avbryt snapshotet, logga vilken stad. (Per-stad
   "last good" är mer komplext och ligger utanför scope.)
 - **Otolkbar `PARKING_RATE`** → `tariffId: null`; featuren visas ändå med
@@ -254,20 +379,57 @@ i `packages/tariff` och delas av poller + web.
   (kalibreringssignal).
 - Stockholm-svaret läses som UTF-8.
 
+## Payload-budget
+
+- Linjer behålls; geometri slås **inte** ihop.
+- Bantning: endast `fordon`, normaliserade minimala properties (ingen `raw`),
+  koordinatprecision 5 decimaler (~1 m), taxor externaliserade till
+  `tariffs.json`.
+- Uppskattning: ~15,7k linjer ≈ **2–4 MB** rå JSON → Pages gzip/brotli →
+  **~300–600 kB** över nätet. Service-workern cachar. Acceptabelt.
+- **Guardrail:** pollern loggar utdatans storlek och varnar över en tröskel
+  (t.ex. 6 MB okomprimerat) som signal för framtida linjeförenkling. Ej
+  blockerande.
+
 ## Tester
 
 - `holidays`: röda dagar över flera år inkl. påskberäknade + rörliga lördagar;
-  `dayClassOf`-övergångar (fre/lör/sön, dag före nationaldagen m.fl.).
-- Tariff-motor: `dayClass`-matchning i `priceNow` och `totalCost`.
+  `dayClassOf`-prioritet (helgdag-på-lördag → helgdag; lördag → preHelgdag;
+  31/12 → preHelgdag; dag före nationaldagen → preHelgdag).
+- **Tidszon:** samma `instant` ger rätt väggklocka/dagklass för olika
+  `timeZone`; oberoende av processens lokala tidszon (testa med fejkad TZ).
+- Tariff-motor: `dayClass`-matchning i `priceNow` och `totalCost`; locale-`ctx`.
+- `totalCost`-optimering: regelgräns-stegning ger samma resultat som
+  minut-stegningen (regressionstest), och hanterar dygns-/dagklass-övergångar.
 - Stockholm-mallar: varje `PARKING_RATE`-sträng → förväntade regler;
   `avgiftsfri`; okänt mönster → `null`.
 - **Kalibreringstest:** parsade taxa 1–5-timpriser == officiella tabellen
   (CI-signal när Stockholm ändrar taxor).
-- `normalize-stockholm`: fordon-filter, geometri/precision, namnmappning.
-- Orkestrator: merge + per-stad sanity (en stads drop → abort, förra filen
-  bevaras).
-- Web: en källa → två lager renderas; pris-färgbuckets; popup för både punkt
-  och linje; Stockholm döljer beläggning.
+- `normalize-stockholm`: fordon-filter, `LineString`/`MultiLineString`,
+  precision, namn/`provider`/`rulesText`/`accessible`-mappning.
+- `displayPoint`: mittpunkt för `LineString` och `MultiLineString`; punkt = sig
+  själv.
+- Göteborg helguppgradering: berörda mallar ger rätt pris på röd dag / dag före.
+- Orkestrator: merge + `cities`-metadata + per-stad sanity (en stads >20 %-drop
+  → abort, förra filen bevaras; bootstrap tillåts).
+- Web: en källa → två lager renderas; `tier`-färgbuckets via uttryck; popup +
+  vägbeskrivning för både punkt och linje (via `displayPoint`); Stockholm
+  döljer beläggning; närmaste-stad-centrering.
+
+## Granskningsåtgärder (codex 2026-05-30)
+
+Alla åtta fynd verifierade mot koden och åtgärdade i denna revision:
+
+| # | Fynd | Åtgärd |
+|---|------|--------|
+| 1 | Tidszon under-specad | Generaliserad: per-stad `timeZone`/`holidayCalendar`, motorn tar `ctx` |
+| 2 | `preHelgdag`-semantik | Strikt prioritetsordning + årsskifte explicit |
+| 3 | Schema-migration större | Web-facing modell: `provider`/`rulesText`/`accessible`/`displayPoint`, ingen `raw` tappas |
+| 4 | MultiLineString | Typ + normalisering + `displayPoint` + klick hanterar `LineString \| MultiLineString` |
+| 5 | MapLibre-färgläggning | Runtime-GeoJSON med beräknade `tier`/`dimmed`, data-drivna uttryck, omräkning på state-ändring |
+| 6 | `.json`→`.geojson`-migration | Loader-byte, bootstrap-väg, gammal fil tas bort |
+| 7 | Per-stad sanity | Ersätter total-check; per-stad-antal härleds; >20 %-drop → abort |
+| 8 | Startvy i Göteborg | Lätt närmaste-stad-centrering vid laddning |
 
 ## Utanför scope (YAGNI)
 
@@ -277,7 +439,8 @@ i `packages/tariff` och delas av poller + web.
 - Boendeparkering-pris.
 - Säsong/månadsintervall-regler (sällsynt på bil) — känd begränsning, loggas.
 - Per-kalenderdag `maxPerDay` (befintlig begränsning, oförändrad).
-- Stad-väljare / geolocation-centrering (en gemensam karta räcker).
+- Stad-väljare (en gemensam karta med initial centrering räcker).
+- Vyport-baserad tidszon (vi använder per-feature locale istället).
 - Vektor-tiles / backend (återbesöks bara om payloaden blir ett problem).
 
 ## Officiell kalibreringstabell (Stockholm Taxa 1–5)
