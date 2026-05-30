@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T05:36:48.362Z",
+  "generatedAt": "2026-05-30T05:25:40.738Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -16281,20 +16281,6 @@
       "lat": 57.733348,
       "lng": 12.013016,
       "spaces": 18,
-      "tariffId": "free-120min",
-      "maxParkingMinutes": 120,
-      "raw": {
-        "MaxParkingTime": "2 tim",
-        "ExtraInfo": "P-förbud fredagar klockan 09.00 - 12.00 jämna veckor."
-      }
-    },
-    {
-      "id": "1480 2017-00770",
-      "name": "Lars Kaggsgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.733683,
-      "lng": 12.014862,
-      "spaces": 49,
       "tariffId": "free-120min",
       "maxParkingMinutes": 120,
       "raw": {
@@ -37596,6 +37582,19 @@
       }
     },
     {
+      "id": "1480 2026-01471",
+      "name": "Timjansgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.808994,
+      "lng": 12.025671,
+      "spaces": 0,
+      "tariffId": "free-1440min",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "MaxParkingTime": "24 tim"
+      }
+    },
+    {
       "id": "1480 2026-01479",
       "name": "Sankt Sigfridsgatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37687,6 +37686,19 @@
         "ParkingCharge": "Taxa 8",
         "MaxParkingTime": "24 tim",
         "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
+      }
+    },
+    {
+      "id": "1480 2026-01807",
+      "name": "Sven Hultins Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.688807,
+      "lng": 11.97384,
+      "spaces": 0,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
       }
     }
   ]
