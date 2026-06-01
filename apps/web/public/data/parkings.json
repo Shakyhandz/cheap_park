@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-30T05:25:40.738Z",
+  "generatedAt": "2026-06-01T05:48:18.752Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -12135,19 +12135,6 @@
       "maxParkingMinutes": 60,
       "raw": {
         "MaxParkingTime": "1 tim"
-      }
-    },
-    {
-      "id": "1480 2013-00813",
-      "name": "Monsungatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.697513,
-      "lng": 11.907724,
-      "spaces": 0,
-      "tariffId": "free-120min",
-      "maxParkingMinutes": 120,
-      "raw": {
-        "MaxParkingTime": "2 tim"
       }
     },
     {
@@ -32151,22 +32138,6 @@
       }
     },
     {
-      "id": "1480 2022-02200",
-      "name": "Monsungatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.69717,
-      "lng": 11.908247,
-      "spaces": 25,
-      "tariffId": "paid-h60-24-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "24 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 3",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00."
-      }
-    },
-    {
       "id": "1480 2022-02230",
       "name": "Lillekärr Norra",
       "owner": "Stadsmiljöförvaltningen",
@@ -36679,19 +36650,6 @@
       }
     },
     {
-      "id": "1480 2025-02512",
-      "name": "Första Långgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.699689,
-      "lng": 11.947019,
-      "spaces": 0,
-      "tariffId": "free-30min",
-      "maxParkingMinutes": 30,
-      "raw": {
-        "MaxParkingTime": "30 min"
-      }
-    },
-    {
       "id": "1480 2025-02668",
       "name": "Danska Vägen",
       "owner": "Stadsmiljöförvaltningen",
@@ -37600,6 +37558,35 @@
       "owner": "Stadsmiljöförvaltningen",
       "lat": 57.692244,
       "lng": 12.003696,
+      "spaces": 0,
+      "tariffId": "free-120min",
+      "maxParkingMinutes": 120,
+      "raw": {
+        "MaxParkingTime": "2 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01484",
+      "name": "Monsungatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.697174,
+      "lng": 11.908267,
+      "spaces": 0,
+      "tariffId": "paid-h60-24-8-22-off2",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "24 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
+        "ParkingCharge": "Taxa 3",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tillåtelsen gäller vardag klockan 06.00 - 19.00 och sön- och helgdag klockan 06.00 - 19.00 under tiden 1:a juni 2026 - 30:e juni 2026."
+      }
+    },
+    {
+      "id": "1480 2026-01485",
+      "name": "Monsungatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.697278,
+      "lng": 11.907762,
       "spaces": 0,
       "tariffId": "free-120min",
       "maxParkingMinutes": 120,
