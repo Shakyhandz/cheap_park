@@ -1,5 +1,10 @@
+import type { DayClass } from "./holidays.js";
+
+export type { DayClass } from "./holidays.js";
+
 export type TariffRule = {
   daysOfWeek: number[];      // 0=Sun..6=Sat. Empty = all days.
+  dayClasses?: DayClass[];   // Absent/empty = no day-class restriction.
   hourStart: number;          // 0..24, decimal allowed
   hourEnd: number;            // 0..24, exclusive. 24 = end of day.
   pricePerHour: number;       // SEK per hour. 0 = free.
