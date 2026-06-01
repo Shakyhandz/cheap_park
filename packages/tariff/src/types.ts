@@ -1,4 +1,4 @@
-import type { DayClass } from "./holidays.js";
+import type { Calendar, DayClass } from "./holidays.js";
 
 export type { DayClass } from "./holidays.js";
 
@@ -37,4 +37,45 @@ export type ParkingsSnapshot = {
 
 export type TariffsSnapshot = {
   tariffs: Tariff[];
+};
+
+export type CityId = "goteborg" | "stockholm";
+export type Vehicle = "bilar";
+
+export type CityMeta = {
+  source: string;
+  timeZone: string;        // IANA, e.g. "Europe/Stockholm"
+  holidayCalendar: Calendar;
+  center: [number, number]; // [lng, lat]
+};
+
+export type ParkingProperties = {
+  id: string;              // "gbg:…" / "sthlm:…"
+  city: CityId;
+  vehicle: Vehicle;
+  name: string;
+  provider: string;
+  tariffId: string | null;
+  rulesText: string;
+  accessible: boolean;
+  spaces: number | null;
+  maxParkingMinutes: number | null;
+};
+
+export type PointGeometry = { type: "Point"; coordinates: [number, number] };
+export type LineGeometry = { type: "LineString"; coordinates: [number, number][] };
+export type MultiLineGeometry = { type: "MultiLineString"; coordinates: [number, number][][] };
+export type ParkingGeometry = PointGeometry | LineGeometry | MultiLineGeometry;
+
+export type ParkingFeature = {
+  type: "Feature";
+  geometry: ParkingGeometry;
+  properties: ParkingProperties;
+};
+
+export type ParkingFeatureCollection = {
+  type: "FeatureCollection";
+  generatedAt: string;
+  cities: Record<CityId, CityMeta>;
+  features: ParkingFeature[];
 };
