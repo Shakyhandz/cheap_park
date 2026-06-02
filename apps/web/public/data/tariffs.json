@@ -277,6 +277,156 @@
           "pricePerHour": 2
         }
       ]
+    },
+    {
+      "id": "sthlm-avgiftsfri",
+      "name": "Avgiftsfri",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 0
+        }
+      ]
+    },
+    {
+      "id": "sthlm-taxa-1",
+      "name": "Taxa 1",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "hourStart": 0,
+          "hourEnd": 24,
+          "pricePerHour": 55
+        }
+      ]
+    },
+    {
+      "id": "sthlm-taxa-2",
+      "name": "Taxa 2",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "vardag"
+          ],
+          "hourStart": 7,
+          "hourEnd": 21,
+          "pricePerHour": 31
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "preHelgdag",
+            "helgdag"
+          ],
+          "hourStart": 9,
+          "hourEnd": 19,
+          "pricePerHour": 31
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "vardag"
+          ],
+          "hourStart": 0,
+          "hourEnd": 7,
+          "pricePerHour": 20
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "vardag"
+          ],
+          "hourStart": 21,
+          "hourEnd": 24,
+          "pricePerHour": 20
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "preHelgdag",
+            "helgdag"
+          ],
+          "hourStart": 0,
+          "hourEnd": 9,
+          "pricePerHour": 20
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "preHelgdag",
+            "helgdag"
+          ],
+          "hourStart": 19,
+          "hourEnd": 24,
+          "pricePerHour": 20
+        }
+      ]
+    },
+    {
+      "id": "sthlm-taxa-3",
+      "name": "Taxa 3",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "vardag"
+          ],
+          "hourStart": 7,
+          "hourEnd": 19,
+          "pricePerHour": 20
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "preHelgdag"
+          ],
+          "hourStart": 11,
+          "hourEnd": 17,
+          "pricePerHour": 15
+        }
+      ]
+    },
+    {
+      "id": "sthlm-taxa-4",
+      "name": "Taxa 4",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "vardag"
+          ],
+          "hourStart": 7,
+          "hourEnd": 19,
+          "pricePerHour": 10
+        },
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "preHelgdag"
+          ],
+          "hourStart": 11,
+          "hourEnd": 17,
+          "pricePerHour": 10
+        }
+      ]
+    },
+    {
+      "id": "sthlm-taxa-5",
+      "name": "Taxa 5",
+      "rules": [
+        {
+          "daysOfWeek": [],
+          "dayClasses": [
+            "vardag"
+          ],
+          "hourStart": 7,
+          "hourEnd": 19,
+          "pricePerHour": 5
+        }
+      ]
     }
   ]
 }
