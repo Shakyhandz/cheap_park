@@ -48,7 +48,15 @@ export function MapView({
   const mapRef = useRef<MapRef>(null);
   const { state: geo, request: requestGeo } = useGeolocation();
   const [hasRequestedGeo, setHasRequestedGeo] = useState(false);
-  const now = useMemo(() => new Date(), []);
+
+  // Tick "now" once a minute so map prices/tiers stay current as time crosses
+  // a tariff boundary (e.g. day→evening rate), matching the always-fresh
+  // new Date() used by ListView/DetailSheet/filtering.
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(id);
+  }, []);
 
   const byId = useMemo(() => {
     const m = new Map<string, ClientParking>();
