@@ -1,13 +1,20 @@
 # Cheap Park — projektkontext
 
 Mobil webbapp (sedan iOS/Android) som visar parkeringspriser i realtid på en
-karta över Göteborg och låter användaren hitta billigaste parkeringen.
+karta över Göteborg och Stockholm och låter användaren hitta billigaste
+parkeringen.
 
 ## Status
 
 - ✅ **Fas 1 (mobil webb, live):** Kommunal gatumark via Göteborgs öppna
   API. 2603 parkeringar, 100% tariff-täckning. Daglig cron 04:00 UTC,
   GitHub Pages-deploy. https://shakyhandz.github.io/cheap_park/
+- ✅ **Fas 1.7 (multi-stad, Stockholm):** Stockholms gatumark via
+  Trafikkontorets LTF-Tolken-API. ~15 755 bilplatser som gatulinjer,
+  100% tariff-täckning (Taxa 1–5 + avgiftsfri). Enad `parkings.geojson`
+  (Göteborg som punkter + Stockholm som linjer) på en gemensam karta.
+  Svensk helgdagskalender + per-stad tidszon i tariff-motorn. ~18k
+  features totalt, ~0.6 MB gzippat. Branch `stockholm-multi-city`.
 - 🟡 **Fas 1.5 (utvärdera):** Pausat för användartester. Se "Nästa steg"
   nedan för known issues och prioriterade följduppgifter.
 - ⏳ **Fas 2:** Publika p-hus (APCOA, Aimo, Q-Park m.fl.) via scraping
@@ -31,19 +38,25 @@ karta över Göteborg och låter användaren hitta billigaste parkeringen.
 hostad på GitHub Pages.
 
 **Datapipeline:** GitHub Actions cron kör en daglig poller (04:00) som
-hämtar Göteborgs ParkingService-API, normaliserar till strukturerad
-tariff-modell, och commit:ar resultatet till `/public/data/parkings.json`
-i samma repo. Pages auto-deployar på commit och serverar JSON:en från
-samma domän (ingen CORS, ingen proxy-server).
+hämtar BÅDE Göteborgs ParkingService-API och Stockholms LTF-Tolken-API,
+normaliserar till en gemensam strukturerad tariff-modell, slår ihop till
+**en** `/public/data/parkings.geojson` (Göteborg som punkter, Stockholm som
+linjer) + delad `/public/data/tariffs.json`, och commit:ar resultatet i
+samma repo. Pages auto-deployar på commit och serverar filen från samma
+domän (ingen CORS, ingen proxy-server).
 
-Klienten hämtar `parkings.json` vid laddning, beräknar "pris just nu" och
-"totalkostnad för X timmar" lokalt mot tariff-modellen.
+Klienten hämtar `parkings.geojson` vid laddning, plattar till en
+stad-agnostisk modell (`ClientParking` med `displayPoint`/`ctx`), beräknar
+"pris just nu" och "totalkostnad för X timmar" lokalt mot tariff-modellen i
+varje features egen tidszon/helgkalender, och renderar två data-drivna
+MapLibre-lager.
 
 Skäl: snabbast till lansering, noll driftkostnad, ingen backend att drifta,
 gratis versionshistorik på Göteborgs parkeringsdata via git log,
 framtidsklar för Capacitor-inlindning till App Store/Play utan omskrivning.
 
-**APPID till Göteborgs API** lagras som GitHub Actions secret, aldrig i klienten.
+**API-nycklar** (`GBG_APPID` för Göteborg, `STHLM_TK_APIKEY` för Stockholm)
+lagras som GitHub Actions secrets, aldrig i klienten.
 
 ## Övervägda men inte valda alternativ (sparat för framtiden)
 
@@ -78,15 +91,27 @@ vi A med Capacitor istället — billigare migrering, behåller webb-versionen.
 
 ## Datakällor
 
+### Göteborg
 - **Öppna API:** `https://data.goteborg.se/ParkingService/v2.1/`
   - `PublicTollParkings` — avgiftsbelagd gatumark
   - `PublicTimeParkings` — gratis tidsbegränsade fickor (10/15/30 min m.m.)
   - `PublicPayMachines` — betalautomater
-  - Kräver `APPID` (registrera på data.goteborg.se).
+  - Kräver `APPID` (registrera på data.goteborg.se), secret `GBG_APPID`.
 - Nyckelfält: `CurrentParkingCost` (int, server-beräknat),
   `FreeSpaces` + `FreeSpacesDate` (beläggning där det finns),
   `ParkingCost`/`ParkingCharge`/`MaxParkingTime`/`ExtraInfo` (fritext —
-  parsas till tariff-mallar).
+  parsas till tariff-mallar). Normaliseras till Point-features.
+
+### Stockholm
+- **Öppna API:** `https://openparking.stockholm.se/LTF-Tolken/v1/` (Trafikkontoret)
+  - `ptillaten/all` — var/när parkering är tillåten (GeoJSON, gatusträckor).
+  - Kräver API-nyckel (registrera på `https://openstreetgs.stockholm.se/Home/Key`),
+    secret `STHLM_TK_APIKEY`.
+- Live-schemat har ENGELSKA fält (metadata-sidans gamla `P_AVGIFT`/`BPLATS_*`
+  är tomma). Nyckelfält: `STREET_NAME`, `VEHICLE` (filtrerar `fordon`),
+  `PARKING_RATE` (fritext "taxa N: …" → tariff), geometri LineString/MultiLineString.
+- INGEN `CurrentParkingCost` (priset parsas lokalt) och INGEN beläggning på
+  gatumark (`spaces: null`). Bara 6 distinkta `PARKING_RATE`-mönster city-wide.
 
 ## Spec och planer
 
@@ -96,6 +121,11 @@ vi A med Capacitor istället — billigare migrering, behåller webb-versionen.
   (tariff-paket + poller + cron). Implementerad.
 - `docs/superpowers/plans/2026-05-08-cheap-park-web-app.md` — Plan 2
   (Vite/React/MapLibre PWA + GitHub Pages deploy). Implementerad.
+- `docs/superpowers/specs/2026-05-30-cheap-park-stockholm-multi-city-design.md`
+  — Stockholm/multi-stad-design (rev. 2 efter codex-granskning). Godkänd.
+- `docs/superpowers/plans/2026-05-30-cheap-park-stockholm-multi-city.md` —
+  Plan 3 (Stockholm-stöd: tariff-locale, poller-orkestrator, web-lager).
+  Implementerad.
 
 ## Nästa steg
 
@@ -118,8 +148,10 @@ prioriterade i fallande ordning:
 
 ### Datatäckning och kvalitet
 
-- **Helgdagshantering** — visar fel pris på svenska röda dagar.
-  Tariff-mallar har inget begrepp om helger.
+- ✅ **Helgdagshantering** — implementerad i `packages/tariff/src/holidays.ts`
+  (svensk röd-dags-kalender + `dayClassOf`: vardag/preHelgdag/helgdag).
+  Tariff-reglerna har nu `dayClasses`. Göteborgs priser visade sig vara
+  "alla dagar" (ingen helg-beroende), så fixen behövdes främst för Stockholm.
 - **Kalibreringscheck** — jämför vår `priceNow` mot API:ts
   `CurrentParkingCost`-fält som CI-signal när Göteborg ändrar taxor
   eller introducerar nya mönster vi inte parsar.
