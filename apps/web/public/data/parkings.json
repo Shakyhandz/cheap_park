@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T05:48:18.752Z",
+  "generatedAt": "2026-06-02T05:44:25.410Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -37248,6 +37248,32 @@
         "MaxParkingTime": "24 tim",
         "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
         "ExtraInfo": "P-förbud torsdagar klockan 02.00 - 07.00 jämna veckor."
+      }
+    },
+    {
+      "id": "1480 2026-00746",
+      "name": "Beda Hanssons Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.66003,
+      "lng": 11.926333,
+      "spaces": 3,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
+      }
+    },
+    {
+      "id": "1480 2026-00749",
+      "name": "Beda Hanssons Gata",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.659888,
+      "lng": 11.928529,
+      "spaces": 8,
+      "tariffId": "free-30min",
+      "maxParkingMinutes": 30,
+      "raw": {
+        "MaxParkingTime": "30 min"
       }
     },
     {
