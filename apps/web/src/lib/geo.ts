@@ -28,3 +28,20 @@ export function useGeolocation(): { state: GeoState; request: () => void } {
 
   return { state, request };
 }
+
+export function nearestCityCenter(
+  pos: { lat: number; lng: number } | null,
+  centers: Record<string, [number, number]>,
+): [number, number] {
+  const fallback = centers["goteborg"] ?? Object.values(centers)[0]!;
+  if (!pos) return fallback;
+  let best = fallback;
+  let bestD = Infinity;
+  for (const c of Object.values(centers)) {
+    const dLng = c[0] - pos.lng;
+    const dLat = c[1] - pos.lat;
+    const d = dLng * dLng + dLat * dLat; // squared planar distance — fine for nearest-of-few
+    if (d < bestD) { bestD = d; best = c; }
+  }
+  return best;
+}
