@@ -17,24 +17,6 @@ export type Tariff = {
   rules: TariffRule[];
 };
 
-export type Parking = {
-  id: string;
-  name: string;
-  owner: string;
-  lat: number;
-  lng: number;
-  spaces: number;
-  tariffId: string | null;
-  maxParkingMinutes: number | null;
-  raw: Record<string, string>;
-};
-
-export type ParkingsSnapshot = {
-  generatedAt: string;
-  source: string;
-  parkings: Parking[];
-};
-
 export type TariffsSnapshot = {
   tariffs: Tariff[];
 };
