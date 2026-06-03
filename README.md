@@ -70,7 +70,7 @@ cheap_park/
 # Install all workspaces
 npm install
 
-# Run tests (147 tests across 3 packages)
+# Run tests (149 tests across 3 packages)
 npm test --workspaces --if-present
 
 # Run web dev server

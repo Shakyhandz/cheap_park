@@ -14,7 +14,8 @@ parkeringen.
   100% tariff-täckning (Taxa 1–5 + avgiftsfri). Enad `parkings.geojson`
   (Göteborg som punkter + Stockholm som linjer) på en gemensam karta.
   Svensk helgdagskalender + per-stad tidszon i tariff-motorn. ~18k
-  features totalt, ~0.6 MB gzippat. Branch `stockholm-multi-city`.
+  features totalt, ~0.6 MB gzippat. Mergad till `main` (DST-korrekt
+  tariff-motor, klickbara pris-etiketter på kartan).
 - 🟡 **Fas 1.5 (utvärdera):** Pausat för användartester. Se "Nästa steg"
   nedan för known issues och prioriterade följduppgifter.
 - ⏳ **Fas 2:** Publika p-hus (APCOA, Aimo, Q-Park m.fl.) via scraping
@@ -136,9 +137,9 @@ prioriterade i fallande ordning:
 
 - **Riktiga PWA-ikoner** — nuvarande 192/512-ikoner är 1×1-pixel
   platshållare. Ful blob på hemskärm. SVG → PNG-export räcker.
-- **Stale-banner false positive** — placeholder `parkings.json` har
-  `generatedAt: "1970-01-01"`, så banner triggar på första laddningen
-  innan bot:en commitar riktig data. Lägg null/epoch-guard i `isStale`.
+- ✅ **Stale-banner false positive** — fixad i multi-stad-arbetet:
+  `isStale` har nu en epoch/null-guard (`!Number.isFinite(t) || t <= 0`),
+  och placeholder-`parkings.json` är borttagen (ersatt av `parkings.geojson`).
 - **DRY: extrahera `formatDuration(min)`** — duplicerat i
   `ParkingDuration.tsx` och `MapView.tsx` toolbar (toolbar visar
   "Tid: 1 tim 0 min" för rund timme; duration-popup formaterar korrekt).
