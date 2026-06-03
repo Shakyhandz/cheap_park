@@ -1,5 +1,5 @@
 import { ruleAppliesAt, type EvalContext } from "./days.js";
-import { wallClockParts } from "./wallclock.js";
+import { wallClockParts, instantForZonedTime } from "./wallclock.js";
 import type { Tariff, TariffRule } from "./types.js";
 
 export type Segment = { from: Date; to: Date; rate: number };
@@ -21,13 +21,21 @@ function findRule(tariff: Tariff, at: Date, ctx: EvalContext): TariffRule | null
  */
 function nextBoundary(tariff: Tariff, from: Date, hardEnd: Date, ctx: EvalContext): Date {
   const wc = wallClockParts(from, ctx.timeZone);
-  const startOfLocalDayMs = from.getTime() - wc.hour * MS_PER_HOUR;
-  const candidates: number[] = [];
+  // Resolve every candidate boundary through the zone's actual offset rather
+  // than adding hours to a presumed-24h local day. This is DST-correct: on a
+  // fall-back/spring-forward day the local day is 23 or 25 real hours, so a
+  // "07:00 local" boundary must be looked up via instantForZonedTime.
+  const hours = new Set<number>([24]); // next local midnight
   for (const rule of tariff.rules) {
-    candidates.push(startOfLocalDayMs + rule.hourStart * MS_PER_HOUR);
-    candidates.push(startOfLocalDayMs + rule.hourEnd * MS_PER_HOUR);
+    hours.add(rule.hourStart);
+    hours.add(rule.hourEnd);
   }
-  candidates.push(startOfLocalDayMs + 24 * MS_PER_HOUR); // next local midnight
+  const candidates: number[] = [];
+  for (const h of hours) {
+    candidates.push(
+      instantForZonedTime(ctx.timeZone, wc.year, wc.month, wc.day, h).getTime(),
+    );
+  }
 
   const startRule = findRule(tariff, from, ctx);
   const sorted = candidates

@@ -109,3 +109,50 @@ describe("totalCost", () => {
     if (r !== "n/a") expect(r.total).toBe(51);
   });
 });
+
+// Regression: the analytic boundary stepper must agree with a brute-force
+// minute-by-minute reference even across DST transitions, where a local day
+// is 23 or 25 real hours. (Codex finding: pre-fix it mispriced sessions
+// crossing Europe/Stockholm's fall-back/spring-forward days by up to ~15 kr.)
+import { ruleAppliesAt } from "../src/days.js";
+
+describe("totalCost DST-correctness vs minute reference", () => {
+  const t: Tariff = {
+    id: "dst", name: "dst",
+    rules: [
+      { daysOfWeek: [], hourStart: 7, hourEnd: 19, pricePerHour: 20 },
+      { daysOfWeek: [], hourStart: 0, hourEnd: 7, pricePerHour: 5 },
+      { daysOfWeek: [], hourStart: 19, hourEnd: 24, pricePerHour: 5 },
+    ],
+  };
+  function refTotal(from: Date, durMin: number): number {
+    let total = 0;
+    for (let m = 0; m < durMin; m++) {
+      const at = new Date(from.getTime() + m * 60_000);
+      const rule = t.rules.find((r) => ruleAppliesAt(r, at, SE));
+      total += (rule?.pricePerHour ?? 0) / 60;
+    }
+    return Math.round(total * 100) / 100;
+  }
+  function sweep(baseUtcMs: number): string[] {
+    const mismatches: string[] = [];
+    for (let startMin = 0; startMin <= 12 * 60; startMin += 30) {
+      const from = new Date(baseUtcMs + startMin * 60_000);
+      for (const dur of [60, 180, 300, 480, 600]) {
+        const r = totalCost(t, from, dur, SE);
+        if (r === "n/a") continue;
+        const ref = refTotal(from, dur);
+        if (Math.abs(r.total - ref) > 0.02) {
+          mismatches.push(`from=${from.toISOString()} dur=${dur} analytic=${r.total} ref=${ref}`);
+        }
+      }
+    }
+    return mismatches;
+  }
+  it("fall-back day 2026-10-25 matches the reference", () => {
+    expect(sweep(Date.UTC(2026, 9, 24, 21, 0, 0))).toEqual([]);
+  });
+  it("spring-forward day 2026-03-29 matches the reference", () => {
+    expect(sweep(Date.UTC(2026, 2, 28, 22, 0, 0))).toEqual([]);
+  });
+});
