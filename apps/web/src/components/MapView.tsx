@@ -22,6 +22,8 @@ type Props = {
 
 const OSM_STYLE: StyleSpecification = {
   version: 8,
+  // Glyph endpoint is required for the symbol price-label layer to render text.
+  glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
   sources: {
     osm: {
       type: "raster",
@@ -71,16 +73,36 @@ export function MapView({
 
   const initialCenter = useMemo(() => nearestCityCenter(null, centers), [centers]);
 
+  // Distinguishes the two ways geolocation gets used:
+  //  - initial auto-request on mount → center on the nearest city (startup viewport),
+  //  - explicit "Min position" (◎) tap → fly to the user's actual coordinates.
+  const wantUserCenter = useRef(false);
+
   useEffect(() => {
     if (!hasRequestedGeo) { requestGeo(); setHasRequestedGeo(true); }
   }, [hasRequestedGeo, requestGeo]);
 
   useEffect(() => {
-    if (geo.status === "granted" && mapRef.current) {
-      const c = nearestCityCenter({ lat: geo.lat, lng: geo.lng }, centers);
-      mapRef.current.flyTo({ center: c, zoom: 13 });
+    if (geo.status !== "granted" || !mapRef.current) return;
+    if (wantUserCenter.current) {
+      wantUserCenter.current = false;
+      mapRef.current.flyTo({ center: [geo.lng, geo.lat], zoom: 15 });
+    } else {
+      mapRef.current.flyTo({ center: nearestCityCenter({ lat: geo.lat, lng: geo.lng }, centers), zoom: 13 });
     }
   }, [geo, centers]);
+
+  const onLocate = () => {
+    wantUserCenter.current = true;
+    // If geolocation is already granted, geo won't change, so the effect won't
+    // re-fire — recenter directly. Otherwise request and let the effect handle it.
+    if (geo.status === "granted" && mapRef.current) {
+      wantUserCenter.current = false;
+      mapRef.current.flyTo({ center: [geo.lng, geo.lat], zoom: 15 });
+    } else {
+      requestGeo();
+    }
+  };
 
   const onMapClick = (e: MapLayerMouseEvent) => {
     const f = e.features?.[0];
@@ -122,6 +144,26 @@ export function MapView({
               "circle-opacity": ["case", ["get", "dimmed"], 0.35, 1],
             }}
           />
+          <Layer
+            id="parking-labels"
+            type="symbol"
+            minzoom={14}
+            layout={{
+              "text-field": ["get", "label"],
+              "text-size": 12,
+              "text-font": ["Noto Sans Regular"],
+              "text-anchor": "top",
+              "text-offset": [0, 0.6],
+              "text-allow-overlap": false,
+              "symbol-sort-key": ["case", ["get", "dimmed"], 1, 0],
+            }}
+            paint={{
+              "text-color": "#1f2328",
+              "text-halo-color": "#fff",
+              "text-halo-width": 1.5,
+              "text-opacity": ["case", ["get", "dimmed"], 0.5, 1],
+            }}
+          />
         </Source>
         {geo.status === "granted" && (
           <Marker latitude={geo.lat} longitude={geo.lng} anchor="center">
@@ -137,7 +179,7 @@ export function MapView({
       </div>
       <div className="map-fab-row">
         <button className="map-fab" onClick={onOpenList} aria-label="Lista">≡</button>
-        <button className="map-fab" onClick={requestGeo} aria-label="Min position">◎</button>
+        <button className="map-fab" onClick={onLocate} aria-label="Min position">◎</button>
       </div>
     </div>
   );
