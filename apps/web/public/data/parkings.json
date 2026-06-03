@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-02T05:44:25.410Z",
+  "generatedAt": "2026-06-03T05:48:01.006Z",
   "source": "data.goteborg.se ParkingService v2.1",
   "parkings": [
     {
@@ -34077,23 +34077,6 @@
       }
     },
     {
-      "id": "1480 2024-00196",
-      "name": "Hvitfeldtsgatan",
-      "owner": "Stadsmiljöförvaltningen",
-      "lat": 57.702426,
-      "lng": 11.958893,
-      "spaces": 45,
-      "tariffId": "paid-h60-34-8-22-off2",
-      "maxParkingMinutes": 1440,
-      "raw": {
-        "ParkingCost": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
-        "ParkingCharge": "Taxa 2",
-        "MaxParkingTime": "24 tim",
-        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "ExtraInfo": "P-förbud tisdagar klockan 08.00 - 10.00 udda veckor."
-      }
-    },
-    {
       "id": "1480 2024-00200",
       "name": "Kungshöjdsgatan",
       "owner": "Stadsmiljöförvaltningen",
@@ -37589,6 +37572,23 @@
       "maxParkingMinutes": 120,
       "raw": {
         "MaxParkingTime": "2 tim"
+      }
+    },
+    {
+      "id": "1480 2026-01481",
+      "name": "Hvitfeldtsgatan",
+      "owner": "Stadsmiljöförvaltningen",
+      "lat": 57.702418,
+      "lng": 11.958898,
+      "spaces": 46,
+      "tariffId": "paid-h60-34-8-22-off2",
+      "maxParkingMinutes": 1440,
+      "raw": {
+        "ParkingCost": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim",
+        "ParkingCharge": "Taxa 2",
+        "MaxParkingTime": "24 tim",
+        "MaxParkingTimeLimitation": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "ExtraInfo": "P-förbud tisdagar klockan 08.00 - 10.00 udda veckor."
       }
     },
     {
