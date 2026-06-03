@@ -118,7 +118,7 @@ export function MapView({
         initialViewState={{ longitude: initialCenter[0], latitude: initialCenter[1], zoom: 12 }}
         mapStyle={OSM_STYLE}
         attributionControl={true}
-        interactiveLayerIds={["parking-points", "parking-lines"]}
+        interactiveLayerIds={["parking-points", "parking-lines", "parking-labels"]}
         onClick={onMapClick}
       >
         <Source id="parkings" type="geojson" data={source}>
