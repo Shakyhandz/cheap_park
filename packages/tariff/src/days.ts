@@ -1,26 +1,25 @@
 import type { TariffRule } from "./types.js";
+import type { Calendar, DayClass } from "./holidays.js";
+import { dayClassOf } from "./holidays.js";
+import { wallClockParts } from "./wallclock.js";
 
-/**
- * The functions in this module read the *local* timezone of the JavaScript
- * runtime. Parking rules are stated in Stockholm time, so callers must
- * ensure the Date was constructed in Europe/Stockholm time. Browsers on
- * Swedish devices satisfy this automatically. Server-side callers (e.g.,
- * future SSR or scheduled jobs in CI) must convert dates to Stockholm
- * local parts before calling these helpers.
- */
+export type EvalContext = { timeZone: string; calendar: Calendar };
 
-export function dayOfWeekFor(date: Date): number {
-  return date.getDay();
+export function dayOfWeekFor(instant: Date, ctx: EvalContext): number {
+  return wallClockParts(instant, ctx.timeZone).weekday;
 }
 
-export function hourOf(date: Date): number {
-  return date.getHours() + date.getMinutes() / 60 + date.getSeconds() / 3600;
+export function hourOf(instant: Date, ctx: EvalContext): number {
+  return wallClockParts(instant, ctx.timeZone).hour;
 }
 
-export function ruleAppliesAt(rule: TariffRule, at: Date): boolean {
-  const dow = dayOfWeekFor(at);
-  const hour = hourOf(at);
-  const dayMatches = rule.daysOfWeek.length === 0 || rule.daysOfWeek.includes(dow);
-  const hourMatches = hour >= rule.hourStart && hour < rule.hourEnd;
-  return dayMatches && hourMatches;
+export function ruleAppliesAt(rule: TariffRule, at: Date, ctx: EvalContext): boolean {
+  const wc = wallClockParts(at, ctx.timeZone);
+  const dayMatches = rule.daysOfWeek.length === 0 || rule.daysOfWeek.includes(wc.weekday);
+  const classMatches =
+    !rule.dayClasses ||
+    rule.dayClasses.length === 0 ||
+    rule.dayClasses.includes(dayClassOf(at, ctx) as DayClass);
+  const hourMatches = wc.hour >= rule.hourStart && wc.hour < rule.hourEnd;
+  return dayMatches && classMatches && hourMatches;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import type { Parking } from "@cheap-park/tariff";
+import type { ClientParking } from "./lib/client-model.js";
 import { loadSnapshot, tariffFor, type Snapshot } from "./lib/data.js";
 import { readState, writeState, defaultState, type AppState } from "./lib/url-state.js";
 import { applyFilters, type FilterResult } from "./lib/filter.js";
@@ -13,7 +13,9 @@ const DATA_BASE = `${import.meta.env.BASE_URL}data`;
 const STALE_DAYS = 7;
 
 function isStale(generatedAt: Date): boolean {
-  const ageDays = (Date.now() - generatedAt.getTime()) / (24 * 3600 * 1000);
+  const t = generatedAt.getTime();
+  if (!Number.isFinite(t) || t <= 0) return false; // placeholder/epoch → not stale
+  const ageDays = (Date.now() - t) / (24 * 3600 * 1000);
   return ageDays > STALE_DAYS;
 }
 
@@ -40,7 +42,7 @@ export function App() {
 
   const [filterOpen, setFilterOpen] = useState(false);
   const [listOpen, setListOpen] = useState(false);
-  const [selected, setSelected] = useState<Parking | null>(null);
+  const [selected, setSelected] = useState<ClientParking | null>(null);
 
   useEffect(() => {
     loadSnapshot({ basePath: DATA_BASE })
@@ -108,6 +110,7 @@ export function App() {
           dimmed={filtered.dimmed}
           tariffs={snapshot.tariffs}
           durationMinutes={state.durationMinutes}
+          centers={snapshot.centers}
           onSelect={setSelected}
           onChangeDuration={() => setDurationOpen(true)}
           onOpenFilters={() => setFilterOpen(true)}

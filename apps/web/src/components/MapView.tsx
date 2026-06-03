@@ -1,20 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Map, { Marker, type MapRef } from "react-map-gl/maplibre";
-import type { StyleSpecification } from "maplibre-gl";
+import MapGL, { Source, Layer, Marker, type MapRef, type MapLayerMouseEvent } from "react-map-gl/maplibre";
+import type { StyleSpecification, ExpressionSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import type { Parking, Tariff } from "@cheap-park/tariff";
-import { tariffFor } from "../lib/data.js";
-import { hourlyRate, priceLabel, totalLabel } from "../lib/prices.js";
-import { tierForViewport, type Tier } from "../lib/colors.js";
-import { BRUNNSPARKEN, useGeolocation } from "../lib/geo.js";
+import type { Tariff } from "@cheap-park/tariff";
+import type { ClientParking } from "../lib/client-model.js";
+import { buildMapSource } from "../lib/map-source.js";
+import { useGeolocation, nearestCityCenter } from "../lib/geo.js";
 import "./MapView.css";
 
 type Props = {
-  visible: Parking[];
-  dimmed: Parking[];
+  visible: ClientParking[];
+  dimmed: ClientParking[];
   tariffs: Map<string, Tariff>;
   durationMinutes: number | null;
-  onSelect: (parking: Parking) => void;
+  centers: Record<string, [number, number]>;
+  onSelect: (parking: ClientParking) => void;
   onChangeDuration: () => void;
   onOpenFilters: () => void;
   onOpenList: () => void;
@@ -22,6 +22,8 @@ type Props = {
 
 const OSM_STYLE: StyleSpecification = {
   version: 8,
+  // Glyph endpoint is required for the symbol price-label layer to render text.
+  glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
   sources: {
     osm: {
       type: "raster",
@@ -33,110 +35,151 @@ const OSM_STYLE: StyleSpecification = {
   layers: [{ id: "osm", type: "raster", source: "osm" }],
 };
 
-function tierClassFor(tier: Tier): string {
-  return tier;
-}
+const TIER_COLOR: ExpressionSpecification = [
+  "match", ["get", "tier"],
+  "green", "#1a7f37",
+  "yellow", "#bf8700",
+  "red", "#cf222e",
+  "#8c959f",
+];
 
 export function MapView({
-  visible,
-  dimmed,
-  tariffs,
-  durationMinutes,
-  onSelect,
-  onChangeDuration,
-  onOpenFilters,
-  onOpenList,
+  visible, dimmed, tariffs, durationMinutes, centers,
+  onSelect, onChangeDuration, onOpenFilters, onOpenList,
 }: Props) {
   const mapRef = useRef<MapRef>(null);
   const { state: geo, request: requestGeo } = useGeolocation();
   const [hasRequestedGeo, setHasRequestedGeo] = useState(false);
-  const now = useMemo(() => new Date(), []);
+
+  // Tick "now" once a minute so map prices/tiers stay current as time crosses
+  // a tariff boundary (e.g. day→evening rate), matching the always-fresh
+  // new Date() used by ListView/DetailSheet/filtering.
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+
+  const byId = useMemo(() => {
+    const m = new Map<string, ClientParking>();
+    for (const p of [...visible, ...dimmed]) m.set(p.id, p);
+    return m;
+  }, [visible, dimmed]);
+
+  const source = useMemo(
+    () => buildMapSource(visible, dimmed, tariffs, durationMinutes, now),
+    [visible, dimmed, tariffs, durationMinutes, now],
+  );
+
+  const initialCenter = useMemo(() => nearestCityCenter(null, centers), [centers]);
+
+  // Distinguishes the two ways geolocation gets used:
+  //  - initial auto-request on mount → center on the nearest city (startup viewport),
+  //  - explicit "Min position" (◎) tap → fly to the user's actual coordinates.
+  const wantUserCenter = useRef(false);
 
   useEffect(() => {
-    if (!hasRequestedGeo) {
-      requestGeo();
-      setHasRequestedGeo(true);
-    }
+    if (!hasRequestedGeo) { requestGeo(); setHasRequestedGeo(true); }
   }, [hasRequestedGeo, requestGeo]);
 
   useEffect(() => {
-    if (geo.status === "granted" && mapRef.current) {
+    if (geo.status !== "granted" || !mapRef.current) return;
+    if (wantUserCenter.current) {
+      wantUserCenter.current = false;
       mapRef.current.flyTo({ center: [geo.lng, geo.lat], zoom: 15 });
+    } else {
+      mapRef.current.flyTo({ center: nearestCityCenter({ lat: geo.lat, lng: geo.lng }, centers), zoom: 13 });
     }
-  }, [geo]);
+  }, [geo, centers]);
 
-  const all = [...visible, ...dimmed];
-  const dimmedIds = new Set(dimmed.map((p) => p.id));
-  const allRates = all.map((p) => hourlyRate(tariffFor(p, tariffs), now));
+  const onLocate = () => {
+    wantUserCenter.current = true;
+    // If geolocation is already granted, geo won't change, so the effect won't
+    // re-fire — recenter directly. Otherwise request and let the effect handle it.
+    if (geo.status === "granted" && mapRef.current) {
+      wantUserCenter.current = false;
+      mapRef.current.flyTo({ center: [geo.lng, geo.lat], zoom: 15 });
+    } else {
+      requestGeo();
+    }
+  };
+
+  const onMapClick = (e: MapLayerMouseEvent) => {
+    const f = e.features?.[0];
+    if (!f) return;
+    const id = f.properties?.["id"] as string | undefined;
+    if (id && byId.has(id)) onSelect(byId.get(id)!);
+  };
 
   return (
     <div className="map-container">
-      <Map
+      <MapGL
         ref={mapRef}
-        initialViewState={{
-          longitude: BRUNNSPARKEN.lng,
-          latitude: BRUNNSPARKEN.lat,
-          zoom: 14,
-        }}
+        initialViewState={{ longitude: initialCenter[0], latitude: initialCenter[1], zoom: 12 }}
         mapStyle={OSM_STYLE}
         attributionControl={true}
+        interactiveLayerIds={["parking-points", "parking-lines", "parking-labels"]}
+        onClick={onMapClick}
       >
-        {all.map((parking, i) => {
-          const tariff = tariffFor(parking, tariffs);
-          const rate = allRates[i] ?? null;
-          const tier = tierForViewport(allRates, rate);
-          const isDim = dimmedIds.has(parking.id);
-          const label =
-            durationMinutes !== null
-              ? totalLabel(tariff, now, durationMinutes)
-              : priceLabel(tariff, now);
-          return (
-            <Marker key={parking.id} latitude={parking.lat} longitude={parking.lng} anchor="center">
-              <button
-                className={`parking-pin ${tierClassFor(tier)}${isDim ? " dimmed" : ""}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onSelect(parking);
-                }}
-                aria-label={`${parking.name} — ${label}`}
-              >
-                {label}
-              </button>
-            </Marker>
-          );
-        })}
+        <Source id="parkings" type="geojson" data={source}>
+          <Layer
+            id="parking-lines"
+            type="line"
+            filter={["match", ["geometry-type"], ["LineString", "MultiLineString"], true, false]}
+            paint={{
+              "line-color": TIER_COLOR,
+              "line-width": 4,
+              "line-opacity": ["case", ["get", "dimmed"], 0.3, 0.9],
+            }}
+          />
+          <Layer
+            id="parking-points"
+            type="circle"
+            filter={["==", ["geometry-type"], "Point"]}
+            paint={{
+              "circle-color": TIER_COLOR,
+              "circle-radius": 6,
+              "circle-stroke-color": "#fff",
+              "circle-stroke-width": 1.5,
+              "circle-opacity": ["case", ["get", "dimmed"], 0.35, 1],
+            }}
+          />
+          <Layer
+            id="parking-labels"
+            type="symbol"
+            minzoom={14}
+            layout={{
+              "text-field": ["get", "label"],
+              "text-size": 12,
+              "text-font": ["Noto Sans Regular"],
+              "text-anchor": "top",
+              "text-offset": [0, 0.6],
+              "text-allow-overlap": false,
+              "symbol-sort-key": ["case", ["get", "dimmed"], 1, 0],
+            }}
+            paint={{
+              "text-color": "#1f2328",
+              "text-halo-color": "#fff",
+              "text-halo-width": 1.5,
+              "text-opacity": ["case", ["get", "dimmed"], 0.5, 1],
+            }}
+          />
+        </Source>
         {geo.status === "granted" && (
           <Marker latitude={geo.lat} longitude={geo.lng} anchor="center">
-            <div
-              style={{
-                width: 14,
-                height: 14,
-                borderRadius: "50%",
-                background: "#1f6feb",
-                border: "3px solid #fff",
-                boxShadow: "0 0 0 4px rgba(31,111,235,0.25)",
-              }}
-            />
+            <div style={{ width: 14, height: 14, borderRadius: "50%", background: "#1f6feb", border: "3px solid #fff", boxShadow: "0 0 0 4px rgba(31,111,235,0.25)" }} />
           </Marker>
         )}
-      </Map>
+      </MapGL>
       <div className="map-toolbar">
         <button className="map-chip" onClick={onChangeDuration}>
-          {durationMinutes === null
-            ? "Vet ej tid"
-            : `Tid: ${Math.floor(durationMinutes / 60)} tim ${durationMinutes % 60} min`}
+          {durationMinutes === null ? "Vet ej tid" : `Tid: ${Math.floor(durationMinutes / 60)} tim ${durationMinutes % 60} min`}
         </button>
-        <button className="map-chip" onClick={onOpenFilters}>
-          Filter
-        </button>
+        <button className="map-chip" onClick={onOpenFilters}>Filter</button>
       </div>
       <div className="map-fab-row">
-        <button className="map-fab" onClick={onOpenList} aria-label="Lista">
-          ≡
-        </button>
-        <button className="map-fab" onClick={requestGeo} aria-label="Min position">
-          ◎
-        </button>
+        <button className="map-fab" onClick={onOpenList} aria-label="Lista">≡</button>
+        <button className="map-fab" onClick={onLocate} aria-label="Min position">◎</button>
       </div>
     </div>
   );

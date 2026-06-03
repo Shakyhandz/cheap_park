@@ -28,6 +28,7 @@ jobs:
       - name: Run poller
         env:
           GBG_APPID: ${{ secrets.GBG_APPID }}
+          STHLM_TK_APIKEY: ${{ secrets.STHLM_TK_APIKEY }}
         run: npm run poll --workspace @cheap-park/poller
 
       - name: Commit and push if data changed

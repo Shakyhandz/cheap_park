@@ -1,15 +1,16 @@
-import type { Parking, Tariff } from "@cheap-park/tariff";
+import type { Tariff } from "@cheap-park/tariff";
+import type { ClientParking } from "../lib/client-model.js";
 import { priceLabel, totalLabel, hourlyRate } from "../lib/prices.js";
 import { tariffFor } from "../lib/data.js";
 import { tierForViewport } from "../lib/colors.js";
 import "./ListView.css";
 
 type Props = {
-  visible: Parking[];
-  dimmed: Parking[];
+  visible: ClientParking[];
+  dimmed: ClientParking[];
   tariffs: Map<string, Tariff>;
   durationMinutes: number | null;
-  onSelect: (parking: Parking) => void;
+  onSelect: (parking: ClientParking) => void;
 };
 
 export function ListView({ visible, dimmed, tariffs, durationMinutes, onSelect }: Props) {
@@ -17,21 +18,21 @@ export function ListView({ visible, dimmed, tariffs, durationMinutes, onSelect }
 
   // Sort visible by hourly rate, ascending. null/n/a goes last.
   const sortedVisible = [...visible].sort((a, b) => {
-    const ra = hourlyRate(tariffFor(a, tariffs), now);
-    const rb = hourlyRate(tariffFor(b, tariffs), now);
+    const ra = hourlyRate(tariffFor(a, tariffs), now, a.ctx);
+    const rb = hourlyRate(tariffFor(b, tariffs), now, b.ctx);
     if (ra === null && rb === null) return 0;
     if (ra === null) return 1;
     if (rb === null) return -1;
     return ra - rb;
   });
   const sortedDimmed = [...dimmed].sort((a, b) => {
-    const ra = hourlyRate(tariffFor(a, tariffs), now) ?? Infinity;
-    const rb = hourlyRate(tariffFor(b, tariffs), now) ?? Infinity;
+    const ra = hourlyRate(tariffFor(a, tariffs), now, a.ctx) ?? Infinity;
+    const rb = hourlyRate(tariffFor(b, tariffs), now, b.ctx) ?? Infinity;
     return ra - rb;
   });
 
   const all = [...sortedVisible, ...sortedDimmed];
-  const allRates = all.map((p) => hourlyRate(tariffFor(p, tariffs), now));
+  const allRates = all.map((p) => hourlyRate(tariffFor(p, tariffs), now, p.ctx));
 
   return (
     <div className="list-view">
@@ -53,12 +54,12 @@ export function ListView({ visible, dimmed, tariffs, durationMinutes, onSelect }
           >
             <div>
               <div className="name">{parking.name || parking.id}</div>
-              <div className="meta">{parking.owner}</div>
+              <div className="meta">{parking.provider}</div>
             </div>
             <div className={`price ${tier}`}>
               {durationMinutes !== null
-                ? totalLabel(tariff, now, durationMinutes)
-                : priceLabel(tariff, now)}
+                ? totalLabel(tariff, now, durationMinutes, parking.ctx)
+                : priceLabel(tariff, now, parking.ctx)}
             </div>
           </div>
         );

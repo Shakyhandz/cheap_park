@@ -1,29 +1,50 @@
-import { ruleAppliesAt } from "./days.js";
+import { ruleAppliesAt, type EvalContext } from "./days.js";
+import { wallClockParts, instantForZonedTime } from "./wallclock.js";
 import type { Tariff, TariffRule } from "./types.js";
 
 export type Segment = { from: Date; to: Date; rate: number };
-
 export type TotalCostResult = { total: number; breakdown: Segment[] } | "n/a";
 
 const MS_PER_HOUR = 3600 * 1000;
 
-function findRule(tariff: Tariff, at: Date): TariffRule | null {
+function findRule(tariff: Tariff, at: Date, ctx: EvalContext): TariffRule | null {
   for (const rule of tariff.rules) {
-    if (ruleAppliesAt(rule, at)) return rule;
+    if (ruleAppliesAt(rule, at, ctx)) return rule;
   }
   return null;
 }
 
-function nextBoundary(tariff: Tariff, from: Date, hardEnd: Date): Date {
-  // Find the next time the active rule changes, capped at hardEnd.
-  // Strategy: step minute-by-minute until rule changes. Coarse but correct.
-  // For MVP: step 1 minute at a time. At ≤24 h durations, 1440 iterations max.
-  const startRule = findRule(tariff, from);
-  let cursor = new Date(from.getTime() + 60_000);
-  while (cursor < hardEnd) {
-    const ruleHere = findRule(tariff, cursor);
-    if (ruleHere !== startRule) return cursor;
-    cursor = new Date(cursor.getTime() + 60_000);
+/**
+ * Earliest boundary strictly after `from`, capped at `hardEnd`, where the
+ * active rule changes. Candidates are every rule hourStart/hourEnd today plus
+ * the next local midnight (covers weekday + day-class transitions).
+ */
+function nextBoundary(tariff: Tariff, from: Date, hardEnd: Date, ctx: EvalContext): Date {
+  const wc = wallClockParts(from, ctx.timeZone);
+  // Resolve every candidate boundary through the zone's actual offset rather
+  // than adding hours to a presumed-24h local day. This is DST-correct: on a
+  // fall-back/spring-forward day the local day is 23 or 25 real hours, so a
+  // "07:00 local" boundary must be looked up via instantForZonedTime.
+  const hours = new Set<number>([24]); // next local midnight
+  for (const rule of tariff.rules) {
+    hours.add(rule.hourStart);
+    hours.add(rule.hourEnd);
+  }
+  const candidates: number[] = [];
+  for (const h of hours) {
+    candidates.push(
+      instantForZonedTime(ctx.timeZone, wc.year, wc.month, wc.day, h).getTime(),
+    );
+  }
+
+  const startRule = findRule(tariff, from, ctx);
+  const sorted = candidates
+    .filter((t) => t > from.getTime() && t <= hardEnd.getTime())
+    .sort((a, b) => a - b);
+
+  for (const t of sorted) {
+    const at = new Date(t);
+    if (findRule(tariff, at, ctx) !== startRule) return at;
   }
   return hardEnd;
 }
@@ -32,15 +53,16 @@ export function totalCost(
   tariff: Tariff | null,
   fromNow: Date,
   durationMinutes: number,
+  ctx: EvalContext,
 ): TotalCostResult {
   if (!tariff) return "n/a";
   const end = new Date(fromNow.getTime() + durationMinutes * 60_000);
   const segments: Segment[] = [];
   let cursor = fromNow;
-
-  while (cursor < end) {
-    const rule = findRule(tariff, cursor);
-    const segEnd = nextBoundary(tariff, cursor, end);
+  let guard = 0;
+  while (cursor < end && guard++ < 10_000) {
+    const rule = findRule(tariff, cursor, ctx);
+    const segEnd = nextBoundary(tariff, cursor, end, ctx);
     const rate = rule?.pricePerHour ?? 0;
     segments.push({ from: cursor, to: segEnd, rate });
     cursor = segEnd;
