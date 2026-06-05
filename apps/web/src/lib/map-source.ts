@@ -1,7 +1,7 @@
 import type { Tariff } from "@cheap-park/tariff";
 import { tariffFor } from "./data.js";
 import { hourlyRate, priceLabel, totalLabel } from "./prices.js";
-import { tierForViewport, type Tier } from "./colors.js";
+import { computeViewportTiers, tierForPrice, type Tier } from "./colors.js";
 import type { ClientParking } from "./client-model.js";
 
 export type MapFeatureProps = {
@@ -24,6 +24,7 @@ export function buildMapSource(
   const all = [...visible, ...dimmed];
   const dimmedIds = new Set(dimmed.map((p) => p.id));
   const rates = all.map((p) => hourlyRate(tariffFor(p, tariffs), now, p.ctx));
+  const tiers = computeViewportTiers(rates);
 
   return {
     type: "FeatureCollection",
@@ -38,7 +39,7 @@ export function buildMapSource(
         geometry: p.geometry,
         properties: {
           id: p.id,
-          tier: tierForViewport(rates, rates[i] ?? null),
+          tier: tierForPrice(rates[i] ?? null, tiers),
           dimmed: dimmedIds.has(p.id),
           label,
         },
