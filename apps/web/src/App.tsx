@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import type { ClientParking } from "./lib/client-model.js";
 import { loadSnapshot, tariffFor, type Snapshot } from "./lib/data.js";
 import { readState, writeState, defaultState, type AppState } from "./lib/url-state.js";
@@ -44,6 +44,15 @@ export function App() {
   const [listOpen, setListOpen] = useState(false);
   const [selected, setSelected] = useState<ClientParking | null>(null);
 
+  // Tick "now" once a minute so time-based filters (free / max price per hour)
+  // stay current as tariff boundaries cross, without recomputing on every
+  // unrelated render (e.g. opening the detail sheet). Mirrors MapView's tick.
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+
   useEffect(() => {
     loadSnapshot({ basePath: DATA_BASE })
       .then(setSnapshot)
@@ -64,6 +73,16 @@ export function App() {
     setFilterOpen(false);
   }, []);
 
+  // Memoized so selecting a parking or toggling a sheet doesn't re-filter all
+  // ~18k features (and rebuild the map source) — only data/filters/time changes do.
+  const filtered: FilterResult = useMemo(
+    () =>
+      snapshot
+        ? applyFilters(snapshot.parkings, snapshot.tariffs, state, now)
+        : { visible: [], dimmed: [] },
+    [snapshot, state, now],
+  );
+
   if (error) {
     return (
       <div className="app-shell">
@@ -83,8 +102,6 @@ export function App() {
       </div>
     );
   }
-
-  const filtered: FilterResult = applyFilters(snapshot.parkings, snapshot.tariffs, state, new Date());
 
   return (
     <div className="app-shell">
