@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-08-11T05:14:50.618Z",
+  "generatedAt": "2026-08-12T05:41:50.923Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -57351,6 +57351,28 @@
         "rulesText": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
         "accessible": false,
         "spaces": 0,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.962534,
+          57.700913
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-02441",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Sahlgrensgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 24,
         "maxParkingMinutes": 1440
       }
     },
