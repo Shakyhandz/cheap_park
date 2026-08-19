@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-08-18T04:41:45.097Z",
+  "generatedAt": "2026-08-19T04:42:29.075Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -27409,28 +27409,6 @@
         "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
         "accessible": false,
         "spaces": 34,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.962572,
-          57.700928
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2019-00426",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Sahlgrensgatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-34-8-22-off2",
-        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "accessible": false,
-        "spaces": 53,
         "maxParkingMinutes": 1440
       }
     },
@@ -56017,6 +55995,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.962551,
+          57.700908
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00710",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Sahlgrensgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 24,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.916812,
           57.690229
         ]
@@ -57352,6 +57352,28 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.983243,
+          57.737641
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-02502",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Häradsdomarevägen",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-1440min",
+        "rulesText": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 1440
       }
     },
     {
