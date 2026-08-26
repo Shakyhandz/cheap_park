@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-08-25T04:45:26.594Z",
+  "generatedAt": "2026-08-26T04:46:44.575Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -71726,42 +71726,6 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.94269,
-            59.39645
-          ],
-          [
-            17.94258,
-            59.39641
-          ],
-          [
-            17.94258,
-            59.39641
-          ],
-          [
-            17.94251,
-            59.39638
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2012-00719",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ärvingevägen",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
             17.94386,
             59.3969
           ],
@@ -71776,7 +71740,7 @@
         ]
       },
       "properties": {
-        "id": "sthlm:0180 2012-00719#1",
+        "id": "sthlm:0180 2012-00719",
         "city": "stockholm",
         "vehicle": "bilar",
         "name": "Ärvingevägen",
@@ -71800,6 +71764,42 @@
           [
             17.943,
             59.39657
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2012-00719#1",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "Ärvingevägen",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.94269,
+            59.39645
+          ],
+          [
+            17.94258,
+            59.39641
+          ],
+          [
+            17.94258,
+            59.39641
+          ],
+          [
+            17.94251,
+            59.39638
           ]
         ]
       },
@@ -77082,20 +77082,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.89614,
-            59.38774
+            17.89642,
+            59.38747
           ],
           [
-            17.89611,
-            59.38776
-          ],
-          [
-            17.89611,
-            59.38776
-          ],
-          [
-            17.89609,
-            59.38778
+            17.89638,
+            59.38751
           ]
         ]
       },
@@ -77118,12 +77110,20 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.89642,
-            59.38747
+            17.89614,
+            59.38774
           ],
           [
-            17.89638,
-            59.38751
+            17.89611,
+            59.38776
+          ],
+          [
+            17.89611,
+            59.38776
+          ],
+          [
+            17.89609,
+            59.38778
           ]
         ]
       },
