@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-08-28T16:29:54.318Z",
+  "generatedAt": "2026-08-29T10:58:03.665Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -55863,6 +55863,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.928291,
+          57.650672
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00620",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Ettrörsgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 19,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.919672,
           57.686228
         ]
@@ -55878,6 +55900,72 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.927323,
+          57.650314
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00640",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Radiomastgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 4,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.926237,
+          57.650352
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00641",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Radiomastgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 4,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.925584,
+          57.650633
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00643",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Radiomastgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 16,
+        "maxParkingMinutes": 1440
       }
     },
     {
