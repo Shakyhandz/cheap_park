@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-02T08:41:04.080Z",
+  "generatedAt": "2026-09-03T08:50:01.522Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -57396,28 +57396,6 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.968584,
-          57.703601
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2026-02582",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Kungstorget",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-30min",
-        "rulesText": "Inga regler tillgängliga",
-        "accessible": false,
-        "spaces": 0,
-        "maxParkingMinutes": 30
       }
     },
     {
