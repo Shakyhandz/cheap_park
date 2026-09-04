@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-03T08:50:01.522Z",
+  "generatedAt": "2026-09-04T08:51:36.091Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -52255,28 +52255,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.926888,
-          57.693038
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2024-01371",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Såggatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-7-8-22-off2",
-        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
-        "accessible": false,
-        "spaces": 13,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.926264,
           57.694267
         ]
@@ -52313,28 +52291,6 @@
         "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
         "accessible": false,
         "spaces": 2,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.925804,
-          57.695171
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2024-01389",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Såggatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-7-8-22-off2",
-        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
-        "accessible": false,
-        "spaces": 7,
         "maxParkingMinutes": 1440
       }
     },
@@ -55401,6 +55357,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.987169,
+          57.694917
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00161",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Eklandagatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 2,
+        "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.991256,
           57.68695
         ]
@@ -55533,28 +55511,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.929205,
-          57.691372
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2026-00225",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Såggatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-7-8-22-off2",
-        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
-        "accessible": false,
-        "spaces": 9,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.970608,
           57.713818
         ]
@@ -55592,6 +55548,28 @@
         "accessible": false,
         "spaces": 7,
         "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.98733,
+          57.6949
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00244",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Eklandagatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 2,
+        "maxParkingMinutes": 30
       }
     },
     {
@@ -57285,6 +57263,72 @@
         "rulesText": "18 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 09.00 - 12.00 och jämna veckor.",
         "accessible": false,
         "spaces": 2,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.925815,
+          57.695195
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-01954",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Såggatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
+        "accessible": false,
+        "spaces": 8,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.926932,
+          57.693036
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-01955",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Såggatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
+        "accessible": false,
+        "spaces": 12,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.929163,
+          57.691429
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-01958",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Såggatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 08.00 - 10.00 udda veckor.",
+        "accessible": false,
+        "spaces": 9,
         "maxParkingMinutes": 1440
       }
     },
