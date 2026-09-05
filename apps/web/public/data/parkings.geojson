@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-04T08:51:36.091Z",
+  "generatedAt": "2026-09-05T08:15:30.239Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -55658,28 +55658,6 @@
         "accessible": false,
         "spaces": 17,
         "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.940899,
-          57.69413
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2026-00316",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Kompassgatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-120min",
-        "rulesText": "P-förbud onsdagar klockan 09.00 - 12.00 udda veckor.",
-        "accessible": false,
-        "spaces": 9,
-        "maxParkingMinutes": 120
       }
     },
     {
