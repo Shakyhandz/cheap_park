@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-11T08:49:20.681Z",
+  "generatedAt": "2026-09-12T08:32:42.712Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -57396,28 +57396,6 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 30
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.983243,
-          57.737641
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2026-02502",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Häradsdomarevägen",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-1440min",
-        "rulesText": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "accessible": false,
-        "spaces": 0,
-        "maxParkingMinutes": 1440
       }
     },
     {
