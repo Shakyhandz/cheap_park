@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-25T09:31:09.012Z",
+  "generatedAt": "2026-09-26T09:16:01.639Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -747840,12 +747840,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96312,
-            59.31603
+            17.96326,
+            59.31579
           ],
           [
-            17.96356,
-            59.31593
+            17.96403,
+            59.31565
           ]
         ]
       },
@@ -747868,12 +747868,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96367,
-            59.31617
+            17.96326,
+            59.31579
           ],
           [
-            17.96446,
-            59.31596
+            17.96403,
+            59.31565
           ]
         ]
       },
@@ -747881,7 +747881,7 @@
         "id": "sthlm:0180 2026-01069#1",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -747896,12 +747896,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96348,
-            59.31605
+            17.96367,
+            59.31617
           ],
           [
-            17.96367,
-            59.31599
+            17.96446,
+            59.31596
           ]
         ]
       },
@@ -747924,12 +747924,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96348,
-            59.31605
+            17.96367,
+            59.31617
           ],
           [
-            17.96367,
-            59.31599
+            17.96446,
+            59.31596
           ]
         ]
       },
@@ -747952,12 +747952,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96348,
-            59.31605
+            17.96392,
+            59.31586
           ],
           [
-            17.96367,
-            59.31599
+            17.9642,
+            59.31579
           ]
         ]
       },
@@ -747980,12 +747980,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96312,
-            59.31603
+            17.96392,
+            59.31586
           ],
           [
-            17.96356,
-            59.31593
+            17.9642,
+            59.31579
           ]
         ]
       },
@@ -748008,12 +748008,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96312,
-            59.31603
+            17.96392,
+            59.31586
           ],
           [
-            17.96356,
-            59.31593
+            17.9642,
+            59.31579
           ]
         ]
       },
@@ -748036,12 +748036,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96312,
-            59.31603
+            17.96326,
+            59.31579
           ],
           [
-            17.96356,
-            59.31593
+            17.96403,
+            59.31565
           ]
         ]
       },
@@ -748064,129 +748064,17 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96367,
-            59.31617
+            17.96326,
+            59.31579
           ],
           [
-            17.96446,
-            59.31596
+            17.96403,
+            59.31565
           ]
         ]
       },
       "properties": {
         "id": "sthlm:0180 2026-01069#16",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96367,
-            59.31617
-          ],
-          [
-            17.96446,
-            59.31596
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#17",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96367,
-            59.31617
-          ],
-          [
-            17.96446,
-            59.31596
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#18",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96392,
-            59.31586
-          ],
-          [
-            17.9642,
-            59.31579
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#19",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96367,
-            59.31617
-          ],
-          [
-            17.96446,
-            59.31596
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#2",
         "city": "stockholm",
         "vehicle": "bilar",
         "name": "0180 2026-01069",
@@ -748204,12 +748092,124 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96392,
-            59.31586
+            17.96326,
+            59.31579
           ],
           [
-            17.9642,
+            17.96403,
+            59.31565
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#17",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "0180 2026-01069",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96348,
+            59.31605
+          ],
+          [
+            17.96367,
+            59.31599
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#18",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "0180 2026-01069",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96348,
+            59.31605
+          ],
+          [
+            17.96367,
+            59.31599
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#19",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "0180 2026-01069",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96326,
             59.31579
+          ],
+          [
+            17.96403,
+            59.31565
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#2",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "Ålstens Skogsväg",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96348,
+            59.31605
+          ],
+          [
+            17.96367,
+            59.31599
           ]
         ]
       },
@@ -748217,7 +748217,7 @@
         "id": "sthlm:0180 2026-01069#20",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
+        "name": "0180 2026-01069",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748232,12 +748232,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96392,
-            59.31586
+            17.96312,
+            59.31603
           ],
           [
-            17.9642,
-            59.31579
+            17.96356,
+            59.31593
           ]
         ]
       },
@@ -748245,7 +748245,7 @@
         "id": "sthlm:0180 2026-01069#21",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
+        "name": "0180 2026-01069",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748260,12 +748260,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96326,
-            59.31579
+            17.96312,
+            59.31603
           ],
           [
-            17.96403,
-            59.31565
+            17.96356,
+            59.31593
           ]
         ]
       },
@@ -748273,7 +748273,7 @@
         "id": "sthlm:0180 2026-01069#22",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
+        "name": "0180 2026-01069",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748288,12 +748288,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96326,
-            59.31579
+            17.96312,
+            59.31603
           ],
           [
-            17.96403,
-            59.31565
+            17.96356,
+            59.31593
           ]
         ]
       },
@@ -748301,7 +748301,7 @@
         "id": "sthlm:0180 2026-01069#23",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
+        "name": "0180 2026-01069",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748316,12 +748316,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96326,
-            59.31579
+            17.96367,
+            59.31617
           ],
           [
-            17.96403,
-            59.31565
+            17.96446,
+            59.31596
           ]
         ]
       },
@@ -748344,129 +748344,17 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96348,
-            59.31605
+            17.96367,
+            59.31617
           ],
           [
-            17.96367,
-            59.31599
+            17.96446,
+            59.31596
           ]
         ]
       },
       "properties": {
         "id": "sthlm:0180 2026-01069#25",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96348,
-            59.31605
-          ],
-          [
-            17.96367,
-            59.31599
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#26",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96348,
-            59.31605
-          ],
-          [
-            17.96367,
-            59.31599
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#27",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96312,
-            59.31603
-          ],
-          [
-            17.96356,
-            59.31593
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#28",
-        "city": "stockholm",
-        "vehicle": "bilar",
-        "name": "Ålstens Skogsväg",
-        "provider": "Stockholms stad",
-        "tariffId": "sthlm-avgiftsfri",
-        "rulesText": "avgiftsfri",
-        "accessible": false,
-        "spaces": null,
-        "maxParkingMinutes": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            17.96312,
-            59.31603
-          ],
-          [
-            17.96356,
-            59.31593
-          ]
-        ]
-      },
-      "properties": {
-        "id": "sthlm:0180 2026-01069#29",
         "city": "stockholm",
         "vehicle": "bilar",
         "name": "Ålstens Skogsväg",
@@ -748494,10 +748382,10 @@
         ]
       },
       "properties": {
-        "id": "sthlm:0180 2026-01069#3",
+        "id": "sthlm:0180 2026-01069#26",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748518,6 +748406,118 @@
           [
             17.9642,
             59.31579
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#27",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "Ålstens Skogsväg",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96392,
+            59.31586
+          ],
+          [
+            17.9642,
+            59.31579
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#28",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "Ålstens Skogsväg",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96392,
+            59.31586
+          ],
+          [
+            17.9642,
+            59.31579
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#29",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "Ålstens Skogsväg",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96348,
+            59.31605
+          ],
+          [
+            17.96367,
+            59.31599
+          ]
+        ]
+      },
+      "properties": {
+        "id": "sthlm:0180 2026-01069#3",
+        "city": "stockholm",
+        "vehicle": "bilar",
+        "name": "Ålstens Skogsväg",
+        "provider": "Stockholms stad",
+        "tariffId": "sthlm-avgiftsfri",
+        "rulesText": "avgiftsfri",
+        "accessible": false,
+        "spaces": null,
+        "maxParkingMinutes": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            17.96348,
+            59.31605
+          ],
+          [
+            17.96367,
+            59.31599
           ]
         ]
       },
@@ -748525,7 +748525,7 @@
         "id": "sthlm:0180 2026-01069#4",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748540,12 +748540,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96392,
-            59.31586
+            17.96348,
+            59.31605
           ],
           [
-            17.9642,
-            59.31579
+            17.96367,
+            59.31599
           ]
         ]
       },
@@ -748553,7 +748553,7 @@
         "id": "sthlm:0180 2026-01069#5",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748568,12 +748568,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96392,
-            59.31586
+            17.96312,
+            59.31603
           ],
           [
-            17.9642,
-            59.31579
+            17.96356,
+            59.31593
           ]
         ]
       },
@@ -748581,7 +748581,7 @@
         "id": "sthlm:0180 2026-01069#6",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748596,12 +748596,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96326,
-            59.31579
+            17.96312,
+            59.31603
           ],
           [
-            17.96403,
-            59.31565
+            17.96356,
+            59.31593
           ]
         ]
       },
@@ -748609,7 +748609,7 @@
         "id": "sthlm:0180 2026-01069#7",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748624,12 +748624,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96326,
-            59.31579
+            17.96312,
+            59.31603
           ],
           [
-            17.96403,
-            59.31565
+            17.96356,
+            59.31593
           ]
         ]
       },
@@ -748637,7 +748637,7 @@
         "id": "sthlm:0180 2026-01069#8",
         "city": "stockholm",
         "vehicle": "bilar",
-        "name": "0180 2026-01069",
+        "name": "Ålstens Skogsväg",
         "provider": "Stockholms stad",
         "tariffId": "sthlm-avgiftsfri",
         "rulesText": "avgiftsfri",
@@ -748652,12 +748652,12 @@
         "type": "LineString",
         "coordinates": [
           [
-            17.96326,
-            59.31579
+            17.96367,
+            59.31617
           ],
           [
-            17.96403,
-            59.31565
+            17.96446,
+            59.31596
           ]
         ]
       },
