@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-28T10:45:46.142Z",
+  "generatedAt": "2026-09-29T10:33:45.791Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -3408,28 +3408,6 @@
         "accessible": false,
         "spaces": 18,
         "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          12.007248,
-          57.713494
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2006-02980",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Ernst Kristenssons Gata",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-120min",
-        "rulesText": "Inga regler tillgängliga",
-        "accessible": false,
-        "spaces": 3,
-        "maxParkingMinutes": 120
       }
     },
     {
@@ -57263,6 +57241,28 @@
         "rulesText": "P-förbud fredagar klockan 09.00 - 12.00 jämna veckor.",
         "accessible": false,
         "spaces": 49,
+        "maxParkingMinutes": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.007239,
+          57.713507
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-02095",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Ernst Kristenssons Gata",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-120min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 3,
         "maxParkingMinutes": 120
       }
     },
