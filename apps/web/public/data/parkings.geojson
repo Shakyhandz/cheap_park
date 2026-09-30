@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-09-29T10:33:45.791Z",
+  "generatedAt": "2026-09-30T10:23:56.452Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -7859,6 +7859,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.972622,
+          57.701433
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2007-03958",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Storgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 10,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.973724,
           57.694814
         ]
@@ -15178,6 +15200,28 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.971193,
+          57.696639
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2011-00720",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Vasa Kyrkogata",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 2,
+        "maxParkingMinutes": 1440
       }
     },
     {
@@ -23655,6 +23699,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.012871,
+          57.73008
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2017-00757",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Brahegatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-12-8-22-off2",
+        "rulesText": "12 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud tisdagar klockan 09.00 - 12.00 jämna veckor.",
+        "accessible": false,
+        "spaces": 31,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.008545,
           57.729716
         ]
@@ -24808,6 +24874,28 @@
         "city": "goteborg",
         "vehicle": "bilar",
         "name": "Stallmästaregatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-120min",
+        "rulesText": "Tidsbegränsningen gäller vardag klockan 08.00 - 20.00 och sön- och helgdagar klockan 08.00 - 20.00.\nP-förbud måndagar klockan 02.00 - 07.00 udda veckor.",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.019922,
+          57.729906
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2017-02036",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Ryttmästaregatan",
         "provider": "Stadsmiljöförvaltningen",
         "tariffId": "free-120min",
         "rulesText": "Tidsbegränsningen gäller vardag klockan 08.00 - 20.00 och sön- och helgdagar klockan 08.00 - 20.00.\nP-förbud måndagar klockan 02.00 - 07.00 udda veckor.",
@@ -27087,6 +27175,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          12.019857,
+          57.729839
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2019-00113",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Ryttmästaregatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-120min",
+        "rulesText": "Tidsbegränsningen gäller vardag klockan 08.00 - 20.00 och sön- och helgdag klockan 08.00 - 20.00.\nP-förbud måndagar klockan 02.00 - 07.00 och udda veckor.",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.006407,
           57.71834
         ]
@@ -27960,6 +28070,28 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.974382,
+          57.699831
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2019-01618",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Teatergatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud torsdagar klockan 02.00 - 07.00.",
+        "accessible": false,
+        "spaces": 30,
+        "maxParkingMinutes": 1440
       }
     },
     {
@@ -30950,7 +31082,7 @@
         "tariffId": "free-30min",
         "rulesText": "Inga regler tillgängliga",
         "accessible": false,
-        "spaces": 0,
+        "spaces": 2,
         "maxParkingMinutes": 30
       }
     },
@@ -35990,6 +36122,28 @@
         "accessible": false,
         "spaces": 46,
         "maxParkingMinutes": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.975604,
+          57.698894
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2021-01514",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Teatergatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud torsdagar klockan 02.00 - 07.00.",
+        "accessible": false,
+        "spaces": 37,
+        "maxParkingMinutes": 1440
       }
     },
     {
@@ -42377,6 +42531,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.973825,
+          57.688808
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2022-01187",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Sven Hultins Gata",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.987044,
           57.692428
         ]
@@ -46395,6 +46571,28 @@
         "rulesText": "P-förbud måndagar klockan 08.00 - 10.00.",
         "accessible": false,
         "spaces": 5,
+        "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.951414,
+          57.699466
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2022-01578",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Andra Långgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "P-förbud måndagar klockan 08.00 - 10.00.",
+        "accessible": false,
+        "spaces": 13,
         "maxParkingMinutes": 30
       }
     },
@@ -52717,6 +52915,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.950493,
+          57.699332
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2024-02606",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Andra Långgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag klockan 08.00 - 22.00.\nP-förbud måndagar klockan 08.00 - 10.00.",
+        "accessible": false,
+        "spaces": 32,
+        "maxParkingMinutes": 120
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.032759,
           57.803568
         ]
@@ -53765,6 +53985,28 @@
         "rulesText": "12 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
         "accessible": false,
         "spaces": 10,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.933557,
+          57.69864
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2025-00014",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Stigbergstorget",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-24-8-22-off2",
+        "rulesText": "24 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 16,
         "maxParkingMinutes": 1440
       }
     },
@@ -55643,6 +55885,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.971636,
+          57.696539
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-00355",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Vasa Kyrkogata",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 09.00 - 12.00 jämna veckor.",
+        "accessible": false,
+        "spaces": 7,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           11.934497,
           57.678208
         ]
@@ -56603,6 +56867,28 @@
         "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud torsdagar klockan 02.00 - 07.00.",
         "accessible": false,
         "spaces": 10,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.012871,
+          57.73008
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-01417",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Brahegatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-7-8-22-off2",
+        "rulesText": "7 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud tisdagar klockan 09.00 - 12.00 jämna veckor.",
+        "accessible": false,
+        "spaces": 14,
         "maxParkingMinutes": 1440
       }
     },
