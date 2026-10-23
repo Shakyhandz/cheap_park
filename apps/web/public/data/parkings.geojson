@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-10-22T09:18:56.957Z",
+  "generatedAt": "2026-10-23T09:13:53.088Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -23193,8 +23193,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.006516,
-          57.71683
+          12.006575,
+          57.716847
         ]
       },
       "properties": {
