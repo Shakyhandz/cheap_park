@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-11-02T12:11:31.674Z",
+  "generatedAt": "2026-11-03T11:46:50.755Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -49056,7 +49056,7 @@
         "tariffId": "free-30min",
         "rulesText": "P-förbud tisdagar klockan 02.00 - 07.00 udda veckor.",
         "accessible": false,
-        "spaces": 0,
+        "spaces": 18,
         "maxParkingMinutes": 30
       }
     },
@@ -56120,28 +56120,6 @@
         "accessible": false,
         "spaces": 0,
         "maxParkingMinutes": 60
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.956876,
-          57.702735
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2026-00864",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Kungsgatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-34-8-22-off2",
-        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud fredagar klockan 08.00 - 10.00 jämna veckor.",
-        "accessible": false,
-        "spaces": 0,
-        "maxParkingMinutes": 1440
       }
     },
     {
