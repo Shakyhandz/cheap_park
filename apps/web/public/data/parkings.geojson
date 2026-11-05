@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-11-04T11:58:41.633Z",
+  "generatedAt": "2026-11-05T12:03:58.310Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -2029,8 +2029,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.952075,
-          57.694301
+          11.952077,
+          57.694297
         ]
       },
       "properties": {
@@ -3746,7 +3746,7 @@
         "type": "Point",
         "coordinates": [
           11.937807,
-          57.69982
+          57.699819
         ]
       },
       "properties": {
@@ -5439,8 +5439,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.93771,
-          57.69931
+          11.937707,
+          57.699314
         ]
       },
       "properties": {
@@ -6320,7 +6320,7 @@
         "type": "Point",
         "coordinates": [
           11.952428,
-          57.693236
+          57.693234
         ]
       },
       "properties": {
@@ -6803,8 +6803,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.954535,
-          57.699764
+          11.954554,
+          57.699783
         ]
       },
       "properties": {
@@ -6847,8 +6847,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.955636,
-          57.699527
+          11.955617,
+          57.699536
         ]
       },
       "properties": {
@@ -7133,8 +7133,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.95504,
-          57.69983
+          11.955041,
+          57.69985
         ]
       },
       "properties": {
@@ -8938,7 +8938,7 @@
         "type": "Point",
         "coordinates": [
           11.938594,
-          57.69951
+          57.699509
         ]
       },
       "properties": {
@@ -11907,8 +11907,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.946626,
-          57.698221
+          11.94663,
+          57.698225
         ]
       },
       "properties": {
@@ -12149,8 +12149,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.955027,
-          57.700965
+          11.955031,
+          57.700959
         ]
       },
       "properties": {
@@ -12458,7 +12458,7 @@
         "type": "Point",
         "coordinates": [
           11.934308,
-          57.699617
+          57.699618
         ]
       },
       "properties": {
@@ -16439,8 +16439,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.950187,
-          57.696804
+          11.950189,
+          57.696799
         ]
       },
       "properties": {
@@ -16725,8 +16725,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.952381,
-          57.694242
+          11.952379,
+          57.694247
         ]
       },
       "properties": {
@@ -17715,8 +17715,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.947915,
-          57.699075
+          11.947932,
+          57.699077
         ]
       },
       "properties": {
@@ -17737,8 +17737,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.944853,
-          57.69881
+          11.944856,
+          57.698811
         ]
       },
       "properties": {
@@ -17759,8 +17759,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.948366,
-          57.697817
+          11.948356,
+          57.697818
         ]
       },
       "properties": {
@@ -20091,8 +20091,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.949619,
-          57.698311
+          11.949614,
+          57.698308
         ]
       },
       "properties": {
@@ -23017,8 +23017,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.949163,
-          57.697244
+          11.949176,
+          57.697238
         ]
       },
       "properties": {
@@ -23260,7 +23260,7 @@
         "type": "Point",
         "coordinates": [
           11.943547,
-          57.699
+          57.698995
         ]
       },
       "properties": {
@@ -30190,7 +30190,7 @@
         "type": "Point",
         "coordinates": [
           11.941575,
-          57.698502
+          57.698501
         ]
       },
       "properties": {
@@ -38813,7 +38813,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.945281,
+          11.945284,
           57.697622
         ]
       },
@@ -39935,8 +39935,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951976,
-          57.697929
+          11.951973,
+          57.69793
         ]
       },
       "properties": {
@@ -40001,7 +40001,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.963009,
+          11.96301,
           57.707903
         ]
       },
@@ -40617,8 +40617,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951469,
-          57.69589
+          11.951471,
+          57.695884
         ]
       },
       "properties": {
@@ -40661,8 +40661,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951245,
-          57.697203
+          11.951241,
+          57.697213
         ]
       },
       "properties": {
@@ -45633,8 +45633,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.935303,
-          57.699192
+          11.935292,
+          57.69919
         ]
       },
       "properties": {
@@ -46337,7 +46337,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.933607,
+          11.933608,
           57.699064
         ]
       },
@@ -46931,8 +46931,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.947128,
-          57.698329
+          11.947131,
+          57.698333
         ]
       },
       "properties": {
@@ -51925,28 +51925,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.93371,
-          57.648761
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2024-01026",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Axel Adlers Gata",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-6-8-22-off0-cap30",
-        "rulesText": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "accessible": false,
-        "spaces": 6,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.933108,
           57.647958
         ]
@@ -52093,28 +52071,6 @@
         "rulesText": "24 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud onsdagar klockan 02.00 - 07.00.",
         "accessible": false,
         "spaces": 17,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.935531,
-          57.646749
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2024-01329",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Axel Adlers Gata",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-6-8-22-off0-cap30",
-        "rulesText": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "accessible": false,
-        "spaces": 39,
         "maxParkingMinutes": 1440
       }
     },
@@ -52673,8 +52629,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.945024,
-          57.69949
+          11.945014,
+          57.699515
         ]
       },
       "properties": {
@@ -53553,8 +53509,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951951,
-          57.695337
+          11.951948,
+          57.695344
         ]
       },
       "properties": {
@@ -53575,8 +53531,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951413,
-          57.697742
+          11.95142,
+          57.697753
         ]
       },
       "properties": {
@@ -53597,8 +53553,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951739,
-          57.698322
+          11.951746,
+          57.698332
         ]
       },
       "properties": {
@@ -53620,7 +53576,7 @@
         "type": "Point",
         "coordinates": [
           11.951508,
-          57.698459
+          57.698453
         ]
       },
       "properties": {
@@ -53641,8 +53597,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.951889,
-          57.699102
+          11.951913,
+          57.699103
         ]
       },
       "properties": {
@@ -54147,8 +54103,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.949005,
-          57.698521
+          11.949009,
+          57.698512
         ]
       },
       "properties": {
@@ -57286,6 +57242,50 @@
         "accessible": false,
         "spaces": 37,
         "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.935531,
+          57.646749
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-02462",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Axel Adlers Gata",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-6-8-22-off0-cap30",
+        "rulesText": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 39,
+        "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.93371,
+          57.648761
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-02463",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Axel Adlers Gata",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-6-8-22-off0-cap30",
+        "rulesText": "6 kr/tim 8-22 alla dagar, maxtaxa 30 kr/dag\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
+        "accessible": false,
+        "spaces": 6,
+        "maxParkingMinutes": 1440
       }
     },
     {
