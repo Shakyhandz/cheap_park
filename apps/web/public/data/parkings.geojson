@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-11-12T12:26:28.444Z",
+  "generatedAt": "2026-11-13T12:02:18.628Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -27783,28 +27783,6 @@
         "rulesText": "Parkering är dock tillåten under högst 24 tim i följd vardag utom vardag före sön- och helgdag.",
         "accessible": false,
         "spaces": 4,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.949818,
-          57.691206
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2019-01235",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Rosengatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-34-8-22-off2",
-        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud fredagar klockan 08.00 - 10.00 udda veckor.",
-        "accessible": false,
-        "spaces": 22,
         "maxParkingMinutes": 1440
       }
     },
@@ -57462,6 +57440,28 @@
         "accessible": false,
         "spaces": 6,
         "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.949811,
+          57.6912
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-03491",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Rosengatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "paid-h60-34-8-22-off2",
+        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud fredagar klockan 08.00 - 10.00 udda veckor.",
+        "accessible": false,
+        "spaces": 23,
+        "maxParkingMinutes": 1440
       }
     },
     {
