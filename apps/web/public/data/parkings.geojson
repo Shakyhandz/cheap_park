@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-11-17T12:59:31.964Z",
+  "generatedAt": "2026-11-18T12:52:55.071Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -13791,28 +13791,6 @@
         "rulesText": "Tidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.\nP-förbud tisdagar klockan 09.00 - 12.00 udda veckor under tiden 15:e mars - 30:e april.",
         "accessible": false,
         "spaces": 0,
-        "maxParkingMinutes": 1440
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.956807,
-          57.699347
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2010-00227",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Kaponjärgatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "paid-h60-34-8-22-off2",
-        "rulesText": "34 kr/tim 8-22 alla dagar. Övrig tid: 2 kr/tim\nTidsbegränsningen gäller vardag utom dag före sön- och helgdag klockan 00.00 - 24.00.",
-        "accessible": false,
-        "spaces": 5,
         "maxParkingMinutes": 1440
       }
     },
@@ -30673,28 +30651,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          11.970407,
-          57.70431
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2021-00345",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Lilla Nygatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-30min",
-        "rulesText": "Inga regler tillgängliga",
-        "accessible": false,
-        "spaces": 6,
-        "maxParkingMinutes": 30
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           11.960888,
           57.705899
         ]
@@ -34205,28 +34161,6 @@
         "provider": "Stadsmiljöförvaltningen",
         "tariffId": "free-30min",
         "rulesText": "P-förbud tisdagar klockan 09.00 - 12.00 udda veckor.",
-        "accessible": false,
-        "spaces": 4,
-        "maxParkingMinutes": 30
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.978558,
-          57.691517
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2021-01280",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Gibraltargatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-30min",
-        "rulesText": "P-förbud fredagar klockan 02.00 - 07.00.",
         "accessible": false,
         "spaces": 4,
         "maxParkingMinutes": 30
@@ -40601,28 +40535,6 @@
       },
       "properties": {
         "id": "gbg:1480 2022-00842",
-        "city": "goteborg",
-        "vehicle": "bilar",
-        "name": "Linnégatan",
-        "provider": "Stadsmiljöförvaltningen",
-        "tariffId": "free-30min",
-        "rulesText": "P-förbud torsdagar klockan 02.00 - 07.00.",
-        "accessible": false,
-        "spaces": 0,
-        "maxParkingMinutes": 30
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          11.951241,
-          57.697213
-        ]
-      },
-      "properties": {
-        "id": "gbg:1480 2022-00843",
         "city": "goteborg",
         "vehicle": "bilar",
         "name": "Linnégatan",
@@ -56699,6 +56611,50 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          11.95131,
+          57.697254
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-01855",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Linnégatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "P-förbud torsdagar klockan 02.00 - 07.00.",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.956844,
+          57.699432
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-01864",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Kaponjärgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           12.026518,
           57.675876
         ]
@@ -57462,6 +57418,28 @@
         "accessible": false,
         "spaces": 23,
         "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.970437,
+          57.704273
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-03922",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Lilla Nygatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 4,
+        "maxParkingMinutes": 30
       }
     },
     {
