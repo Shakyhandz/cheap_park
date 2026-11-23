@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-11-20T12:40:51.494Z",
+  "generatedAt": "2026-11-23T14:17:47.985Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
