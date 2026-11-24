@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "generatedAt": "2026-11-23T14:17:47.985Z",
+  "generatedAt": "2026-11-24T14:41:45.452Z",
   "cities": {
     "goteborg": {
       "source": "data.goteborg.se ParkingService v2.1",
@@ -57418,6 +57418,50 @@
         "accessible": false,
         "spaces": 23,
         "maxParkingMinutes": 1440
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.909778,
+          57.636734
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-03522",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Åkereds Skolväg",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-240min",
+        "rulesText": "Inga regler tillgängliga",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 240
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.947397,
+          57.699882
+        ]
+      },
+      "properties": {
+        "id": "gbg:1480 2026-03751",
+        "city": "goteborg",
+        "vehicle": "bilar",
+        "name": "Första Långgatan",
+        "provider": "Stadsmiljöförvaltningen",
+        "tariffId": "free-30min",
+        "rulesText": "P-förbud onsdagar klockan 02.00 - 07.00.",
+        "accessible": false,
+        "spaces": 0,
+        "maxParkingMinutes": 30
       }
     },
     {
